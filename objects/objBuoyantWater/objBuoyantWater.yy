@@ -1,0 +1,42 @@
+{
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objBuoyantWater",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+  ],
+  "managed": true,
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"value":"-0.5",},
+  ],
+  "parent": {
+    "name": "Ocean Wetventure",
+    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+  },
+  "parentObjectId": {
+    "name": "objOceanWater",
+    "path": "objects/objOceanWater/objOceanWater.yy",
+  },
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 1,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": false,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsShapePoints": [],
+  "physicsStartAwake": true,
+  "properties": [],
+  "solid": false,
+  "spriteId": {
+    "name": "sprBuoyantWater",
+    "path": "sprites/sprBuoyantWater/sprBuoyantWater.yy",
+  },
+  "spriteMaskId": null,
+  "visible": true,
+}

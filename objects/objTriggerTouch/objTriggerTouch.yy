@@ -1,0 +1,43 @@
+{
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objTriggerTouch",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+  ],
+  "managed": true,
+  "overriddenProperties": [],
+  "parent": {
+    "name": "Masks",
+    "path": "folders/Objects/Triggers/Masks.yy",
+  },
+  "parentObjectId": null,
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 1,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": false,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsShapePoints": [],
+  "physicsStartAwake": true,
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"key","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"null","varType":4,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"need_keys","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"[]","varType":4,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"sound","filters":[
+        "GMSound",
+      ],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"null","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"sound_loop","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
+  ],
+  "solid": false,
+  "spriteId": {
+    "name": "sprTrigger",
+    "path": "sprites/sprTrigger/sprTrigger.yy",
+  },
+  "spriteMaskId": null,
+  "visible": false,
+}
