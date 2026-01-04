@@ -1,0 +1,1 @@
+draw_sprite_ext(sprWhiteBlock, 0, 0, 0, display_get_width(), display_get_height(), 0, c_white, image_alpha);
