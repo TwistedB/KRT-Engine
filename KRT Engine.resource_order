@@ -130,6 +130,7 @@
     {"name":"fntOptions","order":5,"path":"fonts/fntOptions/fntOptions.yy",},
     {"name":"fntPause","order":6,"path":"fonts/fntPause/fntPause.yy",},
     {"name":"fntPause2","order":7,"path":"fonts/fntPause2/fntPause2.yy",},
+    {"name":"Useful Scripts","order":1,"path":"notes/Useful Scripts/Useful Scripts.yy",},
     {"name":"objBlockBullet","order":5,"path":"objects/objBlockBullet/objBlockBullet.yy",},
     {"name":"objBlockDynamic","order":1,"path":"objects/objBlockDynamic/objBlockDynamic.yy",},
     {"name":"objBlood","order":1,"path":"objects/objBlood/objBlood.yy",},

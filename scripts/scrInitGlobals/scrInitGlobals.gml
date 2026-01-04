@@ -1,3 +1,6 @@
+global.currentVersion = 0.0
+global.currentEvent = 0;
+
 global.game_started = false; //Checks if you're already in-game
 global.game_paused = false; //Checks if the game is paused
 global.caption_last = ""; //Keeps track of the last caption
@@ -24,12 +27,12 @@ global.controls_lock = { //Keeping track of which controls are unusable
 	suicide: true
 }
 
+global.collision_type = 0; //The type of block collision to use for the player (0 == original, 1 == mace)
+global.vine_toggle = false; //Toggles which type of twin vine is active
+
 //to turn down sounds or music during cutscenes
 global.musicVolume = 1;
 global.soundVolume = 1;
-
-global.collision_type = 0; //The type of block collision to use for the player (0 == original, 1 == mace)
-global.vine_toggle = false; //Toggles which type of twin vine is active
 
 global.current_music = -1; //The current music playing
 global.last_xscale = 1; //Last xscale the player had

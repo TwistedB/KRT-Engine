@@ -9,6 +9,8 @@ function save_game(position) {
 	}
 	
 	var data = {
+		version: global.currentVersion,
+		
 		player: global.save_player,
 		
 		info: {
@@ -18,7 +20,9 @@ function save_game(position) {
 			clear: global.clear
 		},
 		
-		items: global.items
+		items: global.items,
+		
+		currentEvent: global.currentEvent
 	};
 	
 	var json = json_stringify(data);
@@ -53,12 +57,34 @@ function load_game(position) {
 	var json = load_file(string("Data{0}", global.save_num + 1), true);
 	var data = json_parse(json);
 	
-	global.save_player = data.player;
-	global.deaths = data.info.deaths;
-	global.time = data.info.time;
-	global.difficulty = data.info.difficulty;
-	global.clear = data.info.clear;
-	global.items = data.items;
+	// PLAYER
+	if (variable_struct_exists(data, "player")) {
+		global.save_player = data.player;
+	}
+	
+	if (variable_struct_exists(data, "currentEvent")) {
+		global.currentEvent = data.currentEvent;
+	}
+
+	// INFO
+	if (variable_struct_exists(data, "info")) {
+		if (variable_struct_exists(data.info, "deaths"))
+			global.deaths = data.info.deaths;
+
+		if (variable_struct_exists(data.info, "time"))
+			global.time = data.info.time;
+
+		if (variable_struct_exists(data.info, "difficulty"))
+			global.difficulty = data.info.difficulty;
+
+		if (variable_struct_exists(data.info, "clear"))
+			global.clear = data.info.clear;
+	}
+
+	// ITEMS
+	if (variable_struct_exists(data, "items")) {
+		global.items = data.items;
+	}
 	
 	if (position) {
 		global.game_started = true;
@@ -92,6 +118,8 @@ function load_game(position) {
 }
 
 function cleanup_game() {
+	global.currentEvent = 0;
+	
 	global.grav = 1;
 	global.deaths = 0;
 	global.time = 0;

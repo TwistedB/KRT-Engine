@@ -1,0 +1,7 @@
+[put this at the top of GMLive stuff]
+if (live_call()) return live_result;
+
+[lerp]
+a, b = point a and b
+c = speed
+a = lerp(a, b, c)
