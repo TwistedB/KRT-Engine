@@ -1,7 +1,21 @@
-function play_music(music, loop) {
+function play_music(music, loop, startPoint, loopStart, loopEnd) {
 	if (!audio_is_playing(music)) {
+		startPoint = is_undefined(startPoint) ? 0 : startPoint;
+		loopStart = is_undefined(loopStart) ? -1 : loopStart;
+		loopEnd = is_undefined(loopEnd) ? -1 : loopEnd;
+		
 	    audio_stop_sound(global.current_music);
-		global.current_music = (!global.display.mute_music && music != -1) ? audio_play_sound(music, 0, loop) : music;
+		global.current_music = (!global.display.mute_music && music != -1) ? audio_play_sound(music, 0, loop, global.musicVolume, startPoint) : music;
+		
+		if(loopStart != -1)
+		{
+			audio_sound_loop_start(global.current_music, loopStart);
+		}
+		
+		if(loopEnd != -1)
+		{
+			audio_sound_loop_end(global.current_music, loopEnd);
+		}
 	}
 }
 
