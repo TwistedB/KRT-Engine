@@ -1,2 +1,3 @@
-Word Index,English,Portrait,Effect,Info ,Info example image
-TL1,"""shitty test 01 "" + string(global.currentVersion)",sprPlayerIdle,-1,,
+Word Index,English,Portrait,Name,Effect,Info ,Info example image
+TL1,shitty test 01,sprPlayerIdle,test,-1,,
+TL2,$S30fuckasddsadsaadsdsasasadads,sprKidPortrait,kid,-1,,
