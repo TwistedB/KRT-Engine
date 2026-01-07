@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrUnlockAchievment",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrUnlockAchievment",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Scripts/System/Misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

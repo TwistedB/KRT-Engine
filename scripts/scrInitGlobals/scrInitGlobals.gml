@@ -1,6 +1,12 @@
 global.currentVersion = 0.0
 global.currentEvent = 0;
 
+//Name, Sprite, Unlocked
+global.achievments =
+[
+	["Test", sprPlayerIdle, false],
+]
+
 global.game_started = false; //Checks if you're already in-game
 global.game_paused = false; //Checks if the game is paused
 global.caption_last = ""; //Keeps track of the last caption
