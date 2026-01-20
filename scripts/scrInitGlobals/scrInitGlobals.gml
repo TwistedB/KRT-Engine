@@ -2,7 +2,7 @@ global.currentVersion = 0.0
 global.currentEvent = 0;
 
 //Name, Sprite, Unlocked
-global.achievments =
+global.achievements =
 [
 	["Test", sprPlayerIdle, false],
 ]

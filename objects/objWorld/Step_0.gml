@@ -18,8 +18,6 @@ if (global.game_started) {
 		if (is_pressed(global.controls.restart) && !global.controls_lock.restart) {
 			restart_game();
 		}
-	} else {
-		change_volume();
 	}
 
 	if (pause_delay < global.total_pause_delay) {
@@ -28,14 +26,15 @@ if (global.game_started) {
 		global.game_paused = !global.game_paused;
 	
 		if (global.game_paused) {
-			pause_screen = sprite_create_from_surface(application_surface, 0, 0, display_get_gui_width(), display_get_gui_height(), false, false, 0, 0);
+			var p = instance_create_depth(0, 0, depth-1, objPause);
 			instance_deactivate_all(true);
+			instance_activate_object(objPause);
 			instance_activate_object(objOnlinePlayer);
 		} else {
 			instance_activate_all();
-		
-			if (sprite_exists(pause_screen)) {
-				sprite_delete(pause_screen);
+			with(objPause)
+			{
+				instance_destroy();	
 			}
 		
 			io_clear();

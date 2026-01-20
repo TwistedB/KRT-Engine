@@ -3,7 +3,7 @@
   "%Name":"fntTitle",
   "AntiAlias":1,
   "applyKerning":0,
-  "ascender":0,
+  "ascender":62,
   "ascenderOffset":0,
   "bold":true,
   "canGenerateBitmap":true,
@@ -254,7 +254,7 @@
     {"amount":-4,"first":121,"second":46,},
   ],
   "last":0,
-  "lineHeight":0,
+  "lineHeight":77,
   "maintainGms1Font":false,
   "name":"fntTitle",
   "parent":{
@@ -273,7 +273,10 @@
   "sdfSpread":8,
   "size":50.0,
   "styleName":"Bold",
-  "textureGroupId":null,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
   "TTFName":"",
   "usesSDF":false,
 }

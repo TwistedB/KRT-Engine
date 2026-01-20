@@ -3,7 +3,7 @@
   "%Name":"fntPause",
   "AntiAlias":1,
   "applyKerning":0,
-  "ascender":0,
+  "ascender":37,
   "ascenderOffset":0,
   "bold":true,
   "canGenerateBitmap":true,
@@ -254,7 +254,7 @@
     {"amount":-2,"first":121,"second":46,},
   ],
   "last":0,
-  "lineHeight":0,
+  "lineHeight":46,
   "maintainGms1Font":false,
   "name":"fntPause",
   "parent":{
@@ -273,7 +273,10 @@
   "sdfSpread":8,
   "size":30.0,
   "styleName":"Bold",
-  "textureGroupId":null,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
   "TTFName":"",
   "usesSDF":false,
 }

@@ -1,3 +1,3 @@
-Word Index,English,Portrait,Name,Effect,Info ,Info example image
-TL1,shitty test 01,sprPlayerIdle,test,-1,,
-TL2,$S30fuckasddsadsaadsdsasasadads,sprKidPortrait,kid,-1,,
+Word Index,English,characterA,characterB,Event,Info ,Info example image
+TL1,$0go $1FUCK$0 yourself,objDCTestA$S1$E1$T1,objDCTestB$E1$T0,-1,,
+TL2,$2shitty $3test 02$2,objDCTestA$S1$E1$T0,objDCTestB$S1$E1$T1,-1,,

@@ -1,27 +1,63 @@
-typewriter = 0
-dialoguespeed = 2
-dialogueid = 0
-faceindex = 0
-active = true
-currentimage = 0
-nextid = false
-t = 0
+myDialouge = [];
+myCharacterEffects = [];
+//myCharaceters[
+//[characterObj, [effect1, effect2], [-1], [effect1]]
+//[characterObj, [effect1, effect2], [-1], [effect1]]
+//]
+myCharacters = [];
+myEvent = [];
 
-dialogueimage = [sprPlayerIdle,sprPlayerRun,sprPlayerIdle]
-dialoguetextchoice = [[":(", "why bro"], ["ok", ":)"]]
-dialoguechoice = ["no","sure"]
-choicecount = 0
-choice = 1
-drawntext = ""
-text = ["yeah ok ", "fat", "blah$S2 you suck go$S5 fuck youself", "$S8 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "$S1choice? $C2"]
-skipCounter = 0;
+myDestroyEvent = -1;
 
-if(instance_exists(objPlayer))
+//[choiceName, choiceDialouge, choiceEvent]
+myChoices = [
+
+]
+
+message_current = 0;
+timer = 0;
+cutoff = 0;
+
+//variables that move up
+t = 0;
+r = 0;
+r2 = 75;
+
+amplitude = 4;
+freq = 2;
+
+increment = 1;
+
+done = false;
+
+//text position
+tX = 30;
+tY = 480;
+
+modifier = 0;
+
+lineFinished = false;
+
+delay = 1;
+
+//needed because it takes 1 frame to add variables
+alarm[0] = 1
+
+function checkDialougeEvent()
 {
-	objPlayer.frozen = true;
-}
-
-function charat(pos)
-{
-    return string_char_at(text[dialogueid],pos)
+	if(myEvent[message_current] != "-1")
+	{
+		//Trigger event if myEvent does not start with $
+		if(string_char_at(myEvent[message_current], 1) != "$")
+		{
+			activate_trigger(myEvent[message_current])
+		}else
+		{
+			//if character = $S change dialouge speed
+			if(string_char_at(myEvent[message_current], 2) == "S")
+			{
+				delay = string_char_at(myEvent[message_current], 3)
+			}
+		}
+	}
 }

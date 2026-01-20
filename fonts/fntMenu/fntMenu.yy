@@ -3,7 +3,7 @@
   "%Name":"fntMenu",
   "AntiAlias":1,
   "applyKerning":0,
-  "ascender":0,
+  "ascender":42,
   "ascenderOffset":0,
   "bold":false,
   "canGenerateBitmap":true,
@@ -247,7 +247,7 @@
     {"amount":-3,"first":121,"second":46,},
   ],
   "last":0,
-  "lineHeight":0,
+  "lineHeight":52,
   "maintainGms1Font":false,
   "name":"fntMenu",
   "parent":{
@@ -266,7 +266,10 @@
   "sdfSpread":8,
   "size":34.0,
   "styleName":"Regular",
-  "textureGroupId":null,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
   "TTFName":"",
   "usesSDF":false,
 }

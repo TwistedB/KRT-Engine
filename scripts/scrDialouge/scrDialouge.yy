@@ -6,7 +6,7 @@
   "name":"scrDialouge",
   "parent":{
     "name":"Language",
-    "path":"folders/Scripts/System/Language.yy",
+    "path":"folders/Scripts/Language.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

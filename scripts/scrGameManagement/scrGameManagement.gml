@@ -11,6 +11,8 @@ function save_game(position) {
 	var data = {
 		version: global.currentVersion,
 		
+		achievements: global.achievements,
+		
 		player: global.save_player,
 		
 		info: {
@@ -64,6 +66,10 @@ function load_game(position) {
 	
 	if (variable_struct_exists(data, "currentEvent")) {
 		global.currentEvent = data.currentEvent;
+	}
+	
+	if (variable_struct_exists(data, "achievements")) {
+		global.achievements = data.achievements;
 	}
 
 	// INFO
@@ -124,6 +130,11 @@ function cleanup_game() {
 	global.deaths = 0;
 	global.time = 0;
 	global.clear = false;
+	
+	global.achievements =
+	[
+		["Test", sprPlayerIdle, false],
+	]
 	
 	global.player = {
 		xx: 0,
