@@ -23,13 +23,25 @@ if (global.game_started) {
 	if (pause_delay < global.total_pause_delay) {
 		pause_delay++;
 	} else if (is_pressed(global.controls.pause) && !global.controls_lock.pause) {
-		global.game_paused = !global.game_paused;
+		if(instance_exists(objPause))
+		{
+			if(objPause.freezeControls = false)
+			{
+				global.game_paused = !global.game_paused;
+			}
+		}else
+		{
+			global.game_paused = !global.game_paused;
+		}
 	
 		if (global.game_paused) {
-			var p = instance_create_depth(0, 0, depth-1, objPause);
-			instance_deactivate_all(true);
-			instance_activate_object(objPause);
-			instance_activate_object(objOnlinePlayer);
+			if(!instance_exists(objPause))
+			{
+				var p = instance_create_depth(0, 0, depth-1, objPause);
+				instance_deactivate_all(true);
+				instance_activate_object(objPause);
+				instance_activate_object(objOnlinePlayer);
+			}
 		} else {
 			instance_activate_all();
 			
