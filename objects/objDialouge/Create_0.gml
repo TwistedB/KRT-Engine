@@ -9,10 +9,25 @@ myEvent = [];
 
 myDestroyEvent = -1;
 
-//[choiceName, choiceDialouge, choiceEvent]
-myChoices = [
+if(instance_exists(objPlayer))
+{
+	objPlayer.frozen = true;
+}
 
-]
+//[choiceName, choiceDialouge, choiceEvent]
+myChoices = [-1]
+
+if (instance_number(objDialouge) > 1) {
+	instance_destroy();
+	exit;
+}
+
+with(objDCharacter)
+{
+	depth = other.depth+1;
+}
+
+spamDelay = 3;
 
 message_current = 0;
 timer = 0;

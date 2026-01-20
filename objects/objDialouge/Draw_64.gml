@@ -7,17 +7,25 @@ draw_sprite_ext(sprDialougeBox, 0, 400, 608, 1, 1, 0, c_white, 1);
 //how many messages are in the array
 var message_end = array_length(myDialouge)
 
-
-if(myCharacters[0][0].currentlyTalking = true)
+if(array_length(myCharacters) != 0)
 {
-	draw_sprite_ext(sprDialougeBox, 0, 160, 416, 0.24, 0.34, 0, c_white, 1);
-	draw_text(120, 386, myCharacters[0][0].myName)
-}
+	if(instance_exists(myCharacters[0][0]))
+	{
+		if(myCharacters[0][0].currentlyTalking = true)
+		{
+			draw_sprite_ext(sprWhiteBox, 0, 80, 368, 6, 1.5, 0, c_black, 1);
+			draw_text(120, 386, myCharacters[0][0].myName)
+		}
+	}
 
-if(myCharacters[1][0].currentlyTalking = true)
-{
-	draw_sprite_ext(sprDialougeBox, 0, 640, 416, 0.24, 0.34, 0, c_white, 1);
-	draw_text(120+480, 386, myCharacters[1][0].myName)
+	if(instance_exists(myCharacters[1][0]))
+	{	
+		if(myCharacters[1][0].currentlyTalking = true)
+		{
+			draw_sprite_ext(sprWhiteBox, 0, 528, 368, 6, 1.5, 0, c_black, 1);
+			draw_text(120+480, 386, myCharacters[1][0].myName)
+		}
+	}
 }
 
 if(message_end > 0)
@@ -40,8 +48,9 @@ if(message_end > 0)
 	}
 	
 	//next message
-	if(keyboard_check_pressed(global.controls.jump))
+	if(keyboard_check_pressed(global.controls.jump) && done = false && spamDelay <= 0)
 	{
+		spamDelay = 3;
 		if(lineFinished = true)
 		{
 			//if we still have more messages go to next one
@@ -59,7 +68,20 @@ if(message_end > 0)
 			}else
 			{
 				done = true;
-				instance_destroy();
+				if(myChoices[0] = -1)
+				{
+					instance_destroy();
+				}else
+				{
+					var cs = instance_create_depth(x, y, depth, objChoiceSelector);
+					for (var c = 0; c < array_length(myChoices); ++c) {
+					    var choiceBox = instance_create_depth(288, 258+(c*64), depth-1, objChoiceBox);
+						choiceBox.choiceName = myChoices[c][0];
+						choiceBox.choiceNumber = c;
+						choiceBox.choiceSpawn = myChoices[c][1];
+						array_push(cs.choices, choiceBox);
+					}
+				}
 			}
 		}else
 		{

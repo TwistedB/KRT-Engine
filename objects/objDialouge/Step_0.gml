@@ -11,3 +11,8 @@ if(r2 > 255)
 {
 	r2 = 0;
 }
+
+if(spamDelay > 0)
+{
+	spamDelay -= 1;
+}

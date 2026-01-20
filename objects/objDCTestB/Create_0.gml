@@ -13,8 +13,6 @@ myName = "Thing"
 currentlyTalking = false;
 
 dialougeObject = null;
-x = 656;
-y = 358;
 
 lerpX = x;
 lerpY = y;

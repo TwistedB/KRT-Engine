@@ -3,6 +3,8 @@ characterSprites = [sprKidP1];
 
 spriteSelector = 0;
 
+sprite_index = characterSprites[spriteSelector];
+
 myName = "Null"
 
 //$S1 = sprite, $X1 = X position, $Y1 = Y position, $E1 = event, $F1 = flip, $T = current talking

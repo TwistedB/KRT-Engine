@@ -32,6 +32,7 @@ if (global.game_started) {
 			instance_activate_object(objOnlinePlayer);
 		} else {
 			instance_activate_all();
+			
 			with(objPause)
 			{
 				instance_destroy();	

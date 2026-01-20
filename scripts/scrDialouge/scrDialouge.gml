@@ -40,6 +40,7 @@ function Talk(_key, _choices, _destroyEvent){
 	//setting object to -1 for some reason
 	textObj = instance_create_depth(0, 0, -200, objDialouge);
 	textObj.myDestroyEvent = _destroyEvent;
+	textObj.myChoices = [];
 	
 	//array_push(textObj.myCharacters, _key[0][1]);
 	//array_push(textObj.myCharacters, _key[0][3])
@@ -75,6 +76,9 @@ function Talk(_key, _choices, _destroyEvent){
 	if(_choices[0] != -1)
 	{
 		textObj.myChoices = _choices;
+	}else
+	{
+		textObj.myChoices = [-1];
 	}
 }
 

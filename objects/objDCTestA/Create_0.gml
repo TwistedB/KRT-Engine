@@ -13,8 +13,6 @@ myName = "Kid"
 currentlyTalking = false;
 
 dialougeObject = null;
-x = 32;
-y = 128;
 
 lerpX = x;
 lerpY = y;
