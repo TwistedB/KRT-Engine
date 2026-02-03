@@ -47,7 +47,6 @@
     {"$GMFolder":"","%Name":"Ocean Wetventure","folderPath":"folders/Objects/Gimmicks/Water/Ocean Wetventure.yy","name":"Ocean Wetventure","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ice","folderPath":"folders/Objects/Gimmicks/Water/Ocean Wetventure/Ice.yy","name":"Ice","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Oldschool","folderPath":"folders/Objects/Gimmicks/Water/Oldschool.yy","name":"Oldschool","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Misc","folderPath":"folders/Objects/Misc.yy","name":"Misc","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Items","folderPath":"folders/Objects/Items.yy","name":"Items","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Bosses","folderPath":"folders/Objects/Items/Bosses.yy","name":"Bosses","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Secrets","folderPath":"folders/Objects/Items/Secrets.yy","name":"Secrets","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -57,6 +56,7 @@
     {"$GMFolder":"","%Name":"Spikes","folderPath":"folders/Objects/Killers/Spikes.yy","name":"Spikes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Mini","folderPath":"folders/Objects/Killers/Spikes/Mini.yy","name":"Mini","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Standard","folderPath":"folders/Objects/Killers/Spikes/Standard.yy","name":"Standard","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Misc","folderPath":"folders/Objects/Misc.yy","name":"Misc","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Online","folderPath":"folders/Objects/Online.yy","name":"Online","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Platforms","folderPath":"folders/Objects/Platforms.yy","name":"Platforms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Player","folderPath":"folders/Objects/Player.yy","name":"Player","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -167,7 +167,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"KRT Engine",
   "resources":[
