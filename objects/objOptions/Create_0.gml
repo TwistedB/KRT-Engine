@@ -44,6 +44,16 @@ options = [
 			return string("{0}%", ceil(global.display.sfx_volume * 100));
 		}),
 		
+		new Option("Language: ", function() {
+			var dir = (is_pressed(global.controls_menu.right) - is_pressed(global.controls_menu.left));
+			
+			if (dir != 0) {
+				change_language();
+			}
+		}, function() {
+			return Text("Word Index");
+		}),
+		
 		new Option("Fullscreen: ", function() {
 			global.display.fullscreen ^= true;
 			set_display();

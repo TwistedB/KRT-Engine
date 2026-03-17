@@ -11,6 +11,9 @@ global.game_started = false; //Checks if you're already in-game
 global.game_paused = false; //Checks if the game is paused
 global.caption_last = ""; //Keeps track of the last caption
 
+global.defaultFont = fntOptions;
+global.defaultFlag = sprFlagPlaceholder;
+
 global.auto_save = false; //Sets if the game will save after spawning the player
 global.save_num = 0; //The current save file
 global.save_player = { //Keeping track of the last player properties for saving

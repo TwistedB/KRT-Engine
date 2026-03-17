@@ -1,96 +1,114 @@
-//Add later a file to add languages easily
-global.languages = ["EN"]
+//Read languages.txt to see what languages are available
+var file = file_text_open_read("lang/languages.txt");
 
-//Set English as default language
-global.locale = global.languages[0];
+global.languages = [];
+
+while (!file_text_eof(file))
+{
+    var line = file_text_read_string(file);
+    file_text_readln(file); // move to next line
+    
+    array_push(global.languages, line);
+}
+
+file_text_close(file);
+
+//Set the first line in the array as default language
+global.locale = global.languages[global.display.language];
 InitTranslations();
 
 function InitTranslations()
 {
-	//Grabbing CSV file for selected language
-	global.locData = load_csv("lang/" + global.locale + ".csv");
-	
-	var hh = ds_grid_height(global.locData);
-	var translations = ds_map_create();
-	
-	for (var i = 0; i < hh; i++)
-	{
-		ds_map_add(translations, global.locData[# 0, i], i)
-	}
-	
-	global.translations = translations;
+    global.locale = global.languages[global.display.language];
+
+    var base = "lang/" + global.locale + "/";
+
+    // Load CSV
+    global.locData = load_csv(base + global.languages[global.display.language] + ".csv");
+
+    var hh = ds_grid_height(global.locData);
+    var translations = ds_map_create();
+
+    for (var i = 0; i < hh; i++)
+    {
+        ds_map_add(translations, global.locData[# 0, i], i);
+    }
+
+    global.translations = translations;
+
+    LoadLanguageFont(base);
+	LoadLanguageFlag(base);
 }
 
-//Use for basic lines without portraits
+function LoadLanguageFont(_path)
+{
+    var font_path = _path + global.languages[global.display.language] + ".ttf";
+
+    if (file_exists(font_path))
+    {
+        // Remove previous font
+        if (font_exists(global.display.languageFont))
+        {
+			if(global.display.languageFont != global.defaultFont)
+			{
+				font_delete(global.display.languageFont);
+			}
+        }
+
+        // Create font
+        global.display.languageFont = font_add(font_path, 24, false, false, 32, 127);
+    }
+    else
+    {
+        // Remove previous font
+        if (font_exists(global.display.languageFont))
+        {
+			if(global.display.languageFont != global.defaultFont)
+			{
+				font_delete(global.display.languageFont);
+			}
+        }
+		
+        // default font
+        global.display.languageFont = global.defaultFont;
+    }
+}
+
+function LoadLanguageFlag(_path)
+{
+    var flag_path = _path + "flag.png";
+
+    // Delete previous flag
+    if (sprite_exists(global.display.languageFlag))
+    {
+		if(global.display.languageFlag != global.defaultFlag)
+		{
+			sprite_delete(global.display.languageFlag);
+		}
+    }
+
+    // If flag exists
+    if (file_exists(flag_path))
+    {
+        global.display.languageFlag = sprite_add(flag_path, 1, false, false, 0, 0);
+    }
+    else
+    {
+        global.display.languageFlag = global.defaultFlag;
+    }
+}
+
+//Grab CSV translation and find key
 function Text(key)
 {
 	var text = "";
 	
-	//Get language file and load the first column and see if key matches
 	if(global.translations[? key] != undefined)
 	{
-		//pick out the second line and grab translation text
+		//Get language file and load the 2 column and see if key matches
 		text = global.locData[# 1, global.translations[? key]]
 		var a = argument_count > 1 ? argument[1] : "";
 		text = string_replace_all(text, "{a}", a);
-	}else
-	{
-		// if it doesnt return text
-		text = key;
-	}
-	
-	//Load the text that is related to the key and return as a string
-	return text;
-}
-
-//used for lines with portraits
-function TextD(key)
-{
-	var text = ["", -1, -1, -1, -1, -1];
-	
-	//Get language file and load the first column and see if key matches
-	if(global.translations[? key] != undefined)
-	{
-		//pick out the second line and grab translation text
-		//Text
-		text[0] = global.locData[# 1, global.translations[? key]]
-		var a = argument_count > 1 ? argument[1] : "";
-		text[0] = string_replace_all(text[0], "{a}", a);
-		
-		//CharacterA
-		text[1] = global.locData[# 2, global.translations[? key]]
-		var b = argument_count > 2 ? argument[2] : "";
-		text[1] = string_replace_all(text[1], "{b}", b);
-		
-		text[2] = []
-		
-		//CharacterA effects
-		text[1] = scr_parse_dollar_tags(text[1], text[2]);
-
-		if(text[1] != -1)
-		{
-			text[1] = asset_get_index(text[1])
-		}
-		
-		//CharacterB
-		text[3] = global.locData[# 3, global.translations[? key]]
-		var c = argument_count > 3 ? argument[3] : "";
-		text[3] = string_replace_all(text[3], "{c}", c);
-	
-		text[4] = []
-		
-		//CharacterB effects
-		text[3] = scr_parse_dollar_tags(text[3], text[4]);
-		
-		if(text[3] != -1)
-		{
-			text[3] = asset_get_index(text[3])
-		}
-		
-		//Event
-		text[5] = global.locData[# 4, global.translations[? key]]
-		var d = argument_count > 4 ? argument[4] : "";
-		text[5] = string_replace_all(text[5], "{d}", d);
 	}else
 	{
 		// if it doesnt return text
@@ -135,7 +153,3 @@ function scr_parse_dollar_tags(_source_string, _tag_array)
 
     return result;
 }
-
-
-//Ill make a better version with portraits later i guess
-//doing it now lol

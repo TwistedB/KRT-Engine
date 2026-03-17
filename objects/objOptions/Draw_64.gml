@@ -1,10 +1,12 @@
-draw_set_font(fntOptions);
+draw_set_font(global.display.languageFont);
 draw_set_color(c_black);
 
 var option = options[menu];
 var selected = select[menu];
 var length = array_length(options[menu]);
 var index = 0;
+
+draw_sprite_ext(global.display.languageFlag, 0, 50, 50, 1, 1, 0, c_white, 1)
 
 switch (menu) {
 	case MENU_OPTIONS.CONTROLS:

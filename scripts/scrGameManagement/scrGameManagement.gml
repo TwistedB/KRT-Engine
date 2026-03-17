@@ -251,3 +251,20 @@ function change_volume(type = "master") {
 	global.display[$ type + "_volume"] += 0.01 * dir;
 	global.display[$ type + "_volume"] = clamp(global.display[$ type + "_volume"], 0, 1);
 }
+
+function change_language() {
+	var dir = (is_pressed(global.controls.right) - is_pressed(global.controls.left));
+	global.display.language += 1 * dir;
+	
+	if(global.display.language < 0)
+	{
+		global.display.language = array_length(global.languages)-1;
+	}
+	
+	if(global.display.language >= array_length(global.languages))
+	{
+		global.display.language = 0;
+	}
+	
+	InitTranslations()
+}

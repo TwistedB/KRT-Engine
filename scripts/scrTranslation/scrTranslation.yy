@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrTranslation",
   "parent":{
-    "name":"Language",
-    "path":"folders/Scripts/Language.yy",
+    "name":"Dialouge",
+    "path":"folders/Scripts/Language/Dialouge.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
