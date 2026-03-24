@@ -88,7 +88,7 @@ options = [
 			audio_play_sound(sndJump, 0, false);
 		}, function() {
 			return "";
-		})
+		}),
 	],
 	
 	[ //Controls

@@ -118,38 +118,3 @@ function Text(key)
 	//Load the text that is related to the key and return as a string
 	return text;
 }
-
-/// @function scr_parse_dollar_tags(_source_string, _tag_array)
-/// @param _source_string  String containing $ tags
-/// @param _tag_array      Array to push extracted $xx strings into
-/// @return                Cleaned string with $ tags removed
-
-function scr_parse_dollar_tags(_source_string, _tag_array)
-{
-    var result = "";
-    var len = string_length(_source_string);
-    var i = 1;
-
-    while (i <= len)
-    {
-        var ch = string_char_at(_source_string, i);
-
-        if (ch == "$" && i + 2 <= len)
-        {
-            // Extract "$" + next two characters
-            var tag = string_copy(_source_string, i, 3);
-            array_push(_tag_array, tag);
-
-            // Skip "$xx"
-            i += 3;
-        }
-        else
-        {
-            // Normal character, keep it
-            result += ch;
-            i++;
-        }
-    }
-
-    return result;
-}

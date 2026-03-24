@@ -221,19 +221,48 @@ function save_config() {
 	save_file("Config.ini", json, false);
 }
 
-function load_config() {
-	if (!file_exists("Config.ini")) {
+function load_config()
+{
+	scrOptionsConfig();
+	
+	if (!file_exists("Config.ini"))
+	{
 		save_config();
+		set_display();
+		return;
 	}
 	
 	var json = load_file("Config.ini", false);
+	if (json == "" || is_undefined(json))
+	{
+		save_config();
+		set_display();
+		return;
+	}
+	
 	var data = json_parse(json);
 	
-	global.display = data.display;
-	global.controls = data.controls;
-	global.online = data.online;
+	if (is_struct(data))
+	{
+		if (variable_struct_exists(data, "display"))  merge_struct(global.display, data.display);
+		if (variable_struct_exists(data, "controls")) merge_struct(global.controls, data.controls);
+		if (variable_struct_exists(data, "online"))   merge_struct(global.online, data.online);
+	}
 	
 	set_display();
+	save_config();
+}
+
+function merge_struct(_target, _source)
+{
+	if (!is_struct(_source)) return;
+	
+	var names = variable_struct_get_names(_source);
+	for (var i = 0; i < array_length(names); i++)
+	{
+		var key = names[i];
+		_target[$ key] = _source[$ key];
+	}
 }
 
 function set_display() {
