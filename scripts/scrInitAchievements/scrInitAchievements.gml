@@ -1,4 +1,4 @@
-//Make sure to copy code from here to scrGameManagement CleanupGame()
+//Make sure to copy code from here to scrGameManagement CleanupGame()!
 global.achievements = 
 {
 	test : 
