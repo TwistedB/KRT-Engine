@@ -1,0 +1,76 @@
+{
+  "scrTestDialouge": [
+    {
+      "speaker": "Test",
+      "texts": "A1",
+      "characters": [
+        { "sprite": "sprExamplePortrait", "side": "left" },
+        { "sprite": "sprExamplePortrait", "side": "right" }
+      ],
+      "event_start": "debug_test"
+    },
+
+    {
+      "speaker": "Test 2",
+      "texts": "A2",
+      "characters": [
+        { "sprite": "sprExamplePortrait", "side": "left", "off": true },
+        { "sprite": "sprExamplePortrait", "side": "right" }
+      ]
+    },
+
+    {
+      "choice": true,
+      "choices": [
+        {
+          "texts": "End please!",
+          "event_choose": "close"
+        },
+        {
+          "texts": "Restart please!",
+          "goto": 0
+        }
+      ]
+    }
+  ],
+
+  "scrTestDialouge2": [
+    {
+      "speaker": "Test",
+      "texts": "AAAAAAAAAAAAA AAAAAAA AAAAAAAAAAA AAAAAAAAAAAAAA AAAAAA AAA aaa a  aaaaa aaaaaa",
+      "characters": [
+        { "id": "guy1", "sprite": "sprExamplePortrait", "pos": "left", "enterAnim": "slide_left", "exitAnim": "fade"},
+        { "id": "guy2", "sprite": "sprExamplePortrait", "pos": "right", "enterAnim": "fade" }
+      ]
+    },
+    {
+      "sound": "sndExample",
+      "texts": "A1",
+	  "focusId": "guy1",
+      "characters": [
+        { "id": "guy1", "pos": "mid_right", "enterAnim": "slide_left" },
+      ]
+    },
+    {
+      "characters": [
+        { "id": "guy1", "remove": "true" },
+      ],		
+	  "focusOff": "true",
+      "texts": "A2"
+    },
+	
+    {
+      "choice": true,
+      "choices": [
+        {
+          "texts": "End please!",
+          "event_choose": "close"
+        },
+        {
+          "texts": "Restart please!",
+          "goto": 0
+        }
+      ]
+    }
+  ]
+}

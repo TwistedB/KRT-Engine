@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndExample",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.67854875,
+  "exportDir":"",
+  "name":"sndExample",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/VN System/Example/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndExample.wav",
+  "volume":1.0,
+}
