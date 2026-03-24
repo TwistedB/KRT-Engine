@@ -366,6 +366,7 @@
     {"id":{"name":"scrEffectManagement","path":"scripts/scrEffectManagement/scrEffectManagement.yy",},},
     {"id":{"name":"scrEffects","path":"scripts/scrEffects/scrEffects.yy",},},
     {"id":{"name":"scrGameManagement","path":"scripts/scrGameManagement/scrGameManagement.yy",},},
+    {"id":{"name":"scrInitAchievements","path":"scripts/scrInitAchievements/scrInitAchievements.yy",},},
     {"id":{"name":"scrInitDebug","path":"scripts/scrInitDebug/scrInitDebug.yy",},},
     {"id":{"name":"scrInitGlobals","path":"scripts/scrInitGlobals/scrInitGlobals.yy",},},
     {"id":{"name":"scrInitMacros","path":"scripts/scrInitMacros/scrInitMacros.yy",},},

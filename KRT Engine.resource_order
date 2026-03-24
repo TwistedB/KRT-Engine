@@ -270,6 +270,7 @@
     {"name":"scrDialougeHandle","order":1,"path":"scripts/scrDialougeHandle/scrDialougeHandle.yy",},
     {"name":"scrDialougeInit","order":2,"path":"scripts/scrDialougeInit/scrDialougeInit.yy",},
     {"name":"scrEffectManagement","order":7,"path":"scripts/scrEffectManagement/scrEffectManagement.yy",},
+    {"name":"scrInitAchievements","order":7,"path":"scripts/scrInitAchievements/scrInitAchievements.yy",},
     {"name":"scrInitDebug","order":5,"path":"scripts/scrInitDebug/scrInitDebug.yy",},
     {"name":"scrInitGlobals","order":1,"path":"scripts/scrInitGlobals/scrInitGlobals.yy",},
     {"name":"scrJsonReader","order":3,"path":"scripts/scrJsonReader/scrJsonReader.yy",},

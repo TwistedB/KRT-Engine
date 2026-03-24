@@ -1,10 +1,21 @@
-/// @function UnlockAchievment(name);
-/// @param {array} _name
-function UnlockAchievment(_name){
-	for (var i = 0; i < array_length(global.achievements); ++i) {
-	    if(_name = global.achievements[i][0])
-		{
-			global.achievements[i][2] = true;
-		}
+/// @function UnlockAchievement(_name)
+/// @param _name
+function UnlockAchievement(_name)
+{
+	if (variable_struct_exists(global.achievements, _name))
+	{
+		global.achievements[$ _name].unlocked = true;
 	}
+}
+
+/// @function IsAchievementUnlocked(_name)
+/// @param _name
+function IsAchievementUnlocked(_name)
+{
+	if (variable_struct_exists(global.achievements, _name))
+	{
+		return global.achievements[$ _name].unlocked;
+	}
+	
+	return false;
 }

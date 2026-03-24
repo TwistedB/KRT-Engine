@@ -131,10 +131,15 @@ function cleanup_game() {
 	global.time = 0;
 	global.clear = false;
 	
-	global.achievements =
-	[
-		["Test", sprPlayerIdle, false],
-	]
+	global.achievements = 
+	{
+		test : 
+		{
+			name: "Test",
+			icon: sprPlayerIdle,
+			unlocked: false
+		}
+	}
 	
 	global.player = {
 		xx: 0,
