@@ -131,6 +131,8 @@ function cleanup_game() {
 	global.time = 0;
 	global.clear = false;
 	
+	global.backlog = []
+	
 	global.achievements = 
 	{
 		test : 

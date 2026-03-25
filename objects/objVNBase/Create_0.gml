@@ -16,10 +16,16 @@ dioControls =
 {
 	auto: ord("A"),
 	skip: ord("S"),
+	backlog: ord("G"),
 	advance: global.controls.jump,
 	up: global.controls.up,
 	down: global.controls.down
 }
+
+backlogOpen = false;
+backlogScroll = 0;
+backlogMaxScroll = 0;
+backlogGoToBottom = false;
 
 timer = 0;
 cutoff = 0;

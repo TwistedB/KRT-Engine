@@ -12,7 +12,8 @@ enum MODE_VN
 {
 	NORMAL,
 	SKIP,
-	AUTO
+	AUTO,
+	BACKLOG,
 }
 
 function startVN()
@@ -121,6 +122,14 @@ function startVN()
 
 		textFull = VNWrapText(parsed.text, 760);
 		textEffects = VNRemapEffectsToWrapped(textFull, parsed.effects);
+		
+		var np = nameplateText;
+		if(np != "")
+		{
+			np += ": "
+		}
+		
+		array_push(global.backlog, [np, textFull])
 
 		text = "";
 		cutoff = 0;
@@ -157,7 +166,7 @@ function handleVNTyping()
 	{
 		VNtypeText();
 
-		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0)
+		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 		{
 			text = textFull;
 			cutoff = string_length(textFull);
@@ -183,7 +192,7 @@ function waitForVNPlayerAdvance()
 	
 	if(mode = MODE_VN.NORMAL)
 	{
-		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0)
+		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 		{
 			scrVNNext();
 		}
@@ -224,19 +233,19 @@ function handleVNChoice()
 {
 	var c = advance.choices;
 
-	if keyboard_check_pressed(dioControls.up)
+	if keyboard_check_pressed(dioControls.up) && backlogOpen = false
 	{
 		choiceIndex--;
 	}
 
-	if keyboard_check_pressed(dioControls.down)
+	if keyboard_check_pressed(dioControls.down) && backlogOpen = false
 	{
 		choiceIndex++;
 	}
 
 	choiceIndex = clamp(choiceIndex,0,array_length(c)-1);
 
-	if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0)
+	if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 	{
 		inputLock = 2;
 		

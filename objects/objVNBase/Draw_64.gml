@@ -51,3 +51,8 @@ if(state == STATE_VN.CHOICE)
 		draw_text(33, yx, prefix + c[i].texts);
 	}
 }
+
+if(backlogOpen = true)
+{
+	drawVNBacklog()
+}

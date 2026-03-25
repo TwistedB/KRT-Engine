@@ -21,6 +21,41 @@ if(keyboard_check_pressed(dioControls.auto) && modeLock = false)
 	}
 }
 
+if(keyboard_check_pressed(dioControls.backlog) && modeLock = false)
+{
+	if(mode = MODE_VN.BACKLOG)
+	{
+		mode = MODE_VN.NORMAL;
+	}else
+	{
+		mode = MODE_VN.BACKLOG;
+		backlogGoToBottom = true;
+	}	
+}
+
+if(mode = MODE_VN.BACKLOG)
+{
+	backlogOpen = true;
+}else
+{
+	backlogOpen = false;
+}	
+
+if(backlogOpen)
+{
+	if(keyboard_check(dioControls.up)) 
+	{
+		backlogScroll -= 4;
+	}
+
+	if(keyboard_check(dioControls.down)) 
+	{
+		backlogScroll += 4;
+	}
+}
+
+backlogScroll = clamp(backlogScroll, 0, backlogMaxScroll);
+
 if(mode = MODE_VN.AUTO)
 {
 	if(text = textFull)

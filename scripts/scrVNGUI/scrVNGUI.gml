@@ -309,3 +309,42 @@ function drawVNText(_drawStartX = 33, _drawStartY = 586)
 
 	draw_set_colour(c_white);
 }
+
+function drawVNBacklog()
+{
+	var startX = 33;
+	var startY = 50;
+	var maxWidth = room_width - 40;
+
+	draw_set_colour(c_black);
+	draw_set_alpha(0.4);
+	draw_rectangle(0, 0, room_width, room_height, false);
+	draw_set_alpha(1);
+	draw_set_colour(c_white);
+
+	var yPos = startY - backlogScroll;
+
+	backlogMaxScroll = 0;
+
+	for(var i = 0; i < array_length(global.backlog); i++)
+	{
+		var lineText = global.backlog[i][0] + global.backlog[i][1];
+		var textHeight = string_height_ext(lineText, 32, maxWidth);
+
+		if(yPos + textHeight >= startY && yPos <= room_height)
+		{
+			draw_text_ext(startX, yPos, lineText, 32, maxWidth);
+		}
+
+		yPos += textHeight + 10;
+		backlogMaxScroll += textHeight + 10;
+	}
+
+	backlogMaxScroll = max(0, backlogMaxScroll - (room_height - startY));
+	
+	if(backlogGoToBottom = true)
+	{
+		backlogScroll = backlogMaxScroll;
+		backlogGoToBottom = false;
+	}
+}

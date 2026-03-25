@@ -30,6 +30,8 @@ global.controls_lock = { //Keeping track of which controls are unusable
 	suicide: true
 }
 
+global.backlog = []
+
 global.collision_type = 0; //The type of block collision to use for the player (0 == original, 1 == mace)
 global.vine_toggle = false; //Toggles which type of twin vine is active
 
