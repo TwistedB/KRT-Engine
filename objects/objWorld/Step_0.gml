@@ -39,6 +39,9 @@ if (global.game_started) {
 			{
 				var p = instance_create_depth(0, 0, depth-1, objPause);
 				instance_deactivate_all(true);
+				
+				instance_activate_object(objPlayMusic);
+				
 				instance_activate_object(objPause);
 				instance_activate_object(objOnlinePlayer);
 			}

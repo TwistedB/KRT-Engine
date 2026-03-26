@@ -565,6 +565,7 @@
     {"id":{"name":"sprVaporUpdraft","path":"sprites/sprVaporUpdraft/sprVaporUpdraft.yy",},},
     {"id":{"name":"sprVine","path":"sprites/sprVine/sprVine.yy",},},
     {"id":{"name":"sprVNDialougeBox","path":"sprites/sprVNDialougeBox/sprVNDialougeBox.yy",},},
+    {"id":{"name":"sprVNSystem","path":"sprites/sprVNSystem/sprVNSystem.yy",},},
     {"id":{"name":"sprWarp","path":"sprites/sprWarp/sprWarp.yy",},},
     {"id":{"name":"sprWater1","path":"sprites/sprWater1/sprWater1.yy",},},
     {"id":{"name":"sprWater2","path":"sprites/sprWater2/sprWater2.yy",},},

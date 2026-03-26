@@ -12,8 +12,8 @@
     {"name":"inst_178C9EAB_3","path":"rooms/rSampleRoom/rSampleRoom.yy",},
     {"name":"inst_130B8BD0_3","path":"rooms/rSampleRoom/rSampleRoom.yy",},
     {"name":"inst_6808D847_3","path":"rooms/rSampleRoom/rSampleRoom.yy",},
-    {"name":"inst_27638C8","path":"rooms/rSampleRoom/rSampleRoom.yy",},
     {"name":"inst_4C88706E","path":"rooms/rSampleRoom/rSampleRoom.yy",},
+    {"name":"inst_27638C8","path":"rooms/rSampleRoom/rSampleRoom.yy",},
   ],
   "isDnd":false,
   "layers":[

@@ -409,6 +409,7 @@
     {"name":"sprTwinBlackVine","order":1,"path":"sprites/sprTwinBlackVine/sprTwinBlackVine.yy",},
     {"name":"sprVaporDown","order":1,"path":"sprites/sprVaporDown/sprVaporDown.yy",},
     {"name":"sprVaporUpdraft","order":2,"path":"sprites/sprVaporUpdraft/sprVaporUpdraft.yy",},
+    {"name":"sprVNSystem","order":7,"path":"sprites/sprVNSystem/sprVNSystem.yy",},
     {"name":"sprWarp","order":1,"path":"sprites/sprWarp/sprWarp.yy",},
     {"name":"sprWater2","order":1,"path":"sprites/sprWater2/sprWater2.yy",},
     {"name":"sprWater3","order":2,"path":"sprites/sprWater3/sprWater3.yy",},
