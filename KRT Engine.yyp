@@ -170,6 +170,14 @@
     {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
   ],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"testJson.json","CopyToMask":-1,"filePath":"datafiles/data/dialogue","name":"testJson.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"EN.csv","CopyToMask":-1,"filePath":"datafiles/data/lang/EN","name":"EN.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"flag.png","CopyToMask":-1,"filePath":"datafiles/data/lang/EN","name":"flag.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"flag.png","CopyToMask":-1,"filePath":"datafiles/data/lang/IE","name":"flag.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"IE.csv","CopyToMask":-1,"filePath":"datafiles/data/lang/IE","name":"IE.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"IE.ttf","CopyToMask":-1,"filePath":"datafiles/data/lang/IE","name":"IE.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"languages.txt","CopyToMask":-1,"filePath":"datafiles/data/lang","name":"languages.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"readme.txt","CopyToMask":-1,"filePath":"datafiles/data","name":"readme.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"testJson.json","CopyToMask":-1,"filePath":"datafiles/dialogue","name":"testJson.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"EN.csv","CopyToMask":-1,"filePath":"datafiles/lang/EN","name":"EN.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"flag.png","CopyToMask":-1,"filePath":"datafiles/lang/EN","name":"flag.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -177,12 +185,11 @@
     {"$GMIncludedFile":"","%Name":"IE.csv","CopyToMask":-1,"filePath":"datafiles/lang/IE","name":"IE.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"IE.ttf","CopyToMask":-1,"filePath":"datafiles/lang/IE","name":"IE.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"languages.txt","CopyToMask":-1,"filePath":"datafiles/lang","name":"languages.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"readme.txt","CopyToMask":-1,"filePath":"datafiles","name":"readme.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.221",
   },
   "name":"KRT Engine",
   "resources":[

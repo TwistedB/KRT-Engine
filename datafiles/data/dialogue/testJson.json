@@ -45,7 +45,7 @@
     },
     {
       "sound": "sndExample",
-      "texts": "A1",
+      "texts": "TL1",
 	  "focusId": "guy1",
       "characters": [
         { "id": "guy1", "pos": "mid_right", "enterAnim": "slide_left" },
@@ -56,7 +56,7 @@
         { "id": "guy1", "remove": "true" },
       ],		
 	  "focusOff": "true",
-      "texts": "A2"
+      "texts": "TL2"
     },
 	
     {

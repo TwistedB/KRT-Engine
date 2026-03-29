@@ -9,6 +9,20 @@ if (global.game_started && !global.game_paused && (global.time_when_dead || inst
     time_micro %= 1000000;
 }
 
+//Done in order to prevent language errors
+if(!global.game_paused)
+{
+	if(instance_exists(objVNBase))
+	{
+		global.dialoguePlaying = true;
+		global.controls_lock.pause = true;
+	}else
+	{
+		global.dialoguePlaying = false;
+		global.controls_lock.pause = false;
+	}
+}
+
 set_caption();
 #endregion
 

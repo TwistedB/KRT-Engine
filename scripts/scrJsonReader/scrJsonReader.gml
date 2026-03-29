@@ -1,6 +1,6 @@
 function scrJsonReader(_jsonName, _dialogueID)
 {
-    var file = file_text_open_read("dialogue/" + _jsonName + ".json");
+    var file = file_text_open_read(working_directory + "data/dialogue/" + _jsonName + ".json");
     var jsonString = "";
 
     while(!file_text_eof(file))

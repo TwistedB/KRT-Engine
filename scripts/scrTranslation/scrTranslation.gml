@@ -1,5 +1,5 @@
 //Read languages.txt to see what languages are available
-var file = file_text_open_read("lang/languages.txt");
+var file = file_text_open_read(working_directory + "data/lang/languages.txt");
 
 global.languages = [];
 
@@ -21,7 +21,7 @@ function InitTranslations()
 {
     global.locale = global.languages[global.display.language];
 
-    var base = "lang/" + global.locale + "/";
+    var base = working_directory + "data/lang/" + global.locale + "/";
 
     // Load CSV
     global.locData = load_csv(base + global.languages[global.display.language] + ".csv");
