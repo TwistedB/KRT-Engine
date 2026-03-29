@@ -3,9 +3,9 @@ Edited version of K&R GMS2 engine that includes
 better save system that doesn't break when new variables are added
 better options/pause system 
 improved music system 
-built in dialogue system with language support (90% finished)
+built in dialogue system with language support
 built in achievement system 
-epic camera over
+ported epic camera over
 screen shake and screen flash built in 
 event system for story progression
 
