@@ -1,1 +1,0 @@
-scrJsonReader("testJson", "scrTestDialouge2");
