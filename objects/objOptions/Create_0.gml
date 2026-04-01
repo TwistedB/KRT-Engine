@@ -72,6 +72,7 @@ options = [
 			scrOptionsConfig();
 			toggle_music();
 			set_display();
+			InitTranslations();
 		}, function() {
 			return "";
 		}),
