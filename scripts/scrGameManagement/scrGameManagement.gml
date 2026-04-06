@@ -273,7 +273,27 @@ function merge_struct(_target, _source)
 }
 
 function set_display() {
-	window_set_fullscreen(global.display.fullscreen);
+    var sw = display_get_width();
+    var sh = display_get_height();
+
+    if (global.display.fullscreen)
+    {
+        window_set_fullscreen(false);
+        window_set_showborder(false);
+        window_set_size(sw, sh);
+        window_set_position(0, 0);
+    }
+    else
+    {
+        window_set_fullscreen(false);
+        window_set_showborder(true);
+		
+        var ww = surface_get_width(application_surface);
+        var wh = surface_get_height(application_surface);
+
+        window_set_size(ww, wh);
+        window_center();
+    }
 	
 	if (global.display.vsync) {
 		display_reset(0, global.display.vsync);
