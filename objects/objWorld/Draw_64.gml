@@ -1,5 +1,5 @@
 #region Debug Overlay
-if (global.overlay) {
+if (global.overlay && global.debug_enable) {
     var spacing = 20;
     draw_set_font(fntMenu3);
 	draw_set_color(c_white);
