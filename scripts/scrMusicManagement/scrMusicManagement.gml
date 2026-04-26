@@ -29,6 +29,7 @@ function stop_music() {
 function get_music() {
 	var music = -1;
 	var loop = true;
+	var startPoint = 0
 	
 	if (!instance_exists(objPlayMusic)) {
 		switch (room) {
@@ -42,11 +43,25 @@ function get_music() {
 		with (objPlayMusic) {
 			music = self.music;
 			loop = self.loop;
+			startPoint = self.startPoint;
 		}
 	}
 
 	if (music != -2) {
-		play_music(music, loop);
+		play_music(music, loop, startPoint);
+		
+		with(objPlayMusic)
+		{
+			if(loopStart != -1)
+			{
+				audio_sound_loop_start(music, loopStart);
+			}			
+
+			if(loopEnd != -1)
+			{
+				audio_sound_loop_end(music, loopEnd);
+			}			
+		}
 	}
 }
 
