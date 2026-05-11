@@ -1,5 +1,5 @@
 function tangible_collision(obj) {
-	return (obj.image_alpha == 1);
+	return true;
 }
 
 function dynamic_collision(setup = false, func = null, arg = null) {
