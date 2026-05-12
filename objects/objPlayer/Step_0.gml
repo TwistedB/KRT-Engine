@@ -565,87 +565,97 @@ yprevious = y;
 
 //Moving the player manually
 vspd += grav;
-x += hspd;
-y += vspd;
 
 #region Collision with block
-var block = instance_place_check(x, y, objBlock, tangible_collision);
+// Horizontal movement + slope step-up/down
+var grounded = (on_block != null);
+var slope_step = 4; //Max pixels to step up per frame
+var slope_descent = 4; //Max pixels to step down per frame
 
-if (block != null) {
+if (hspd != 0) {
+	// Check if horizontal movement would collide
+	if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
+		if (grounded) {
+			var stepped = false;
+			
+			// Try stepping up 1 pixel at a time up to slope_step pixels
+			for (var _step = 1; _step <= slope_step; _step++) {
+				if (instance_place_check(x + hspd, y - _step * global.grav, objBlock, tangible_collision) == null) {
+					y -= _step * global.grav;
+					x += hspd;
+					stepped = true;
+					break;
+				}
+			}
+			
+			// Couldnt step up slope its a normal wall
+			if (!stepped) {
+				while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
+					x += sign(hspd);
+				}
+				hspd = 0;
+			}
+		} else {
+			// In air when hitting a wall
+			while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
+				x += sign(hspd);
+			}
+			hspd = 0;
+		}
+	} else {
+		x += hspd;
+		
+		// After moving horizontally, check if we need to step DOWN a slope
+		// Only apply slope descent when NOT jumping (vspd should be negative when jumping)
+		if (grounded && vspd >= 0) {
+			var stepped_down = false;
+			
+			// Try stepping down 1 pixel at a time up to slope_descent pixels
+			for (var _step = 1; _step <= slope_descent; _step++) {
+				if (instance_place_check(x, y + _step * global.grav, objBlock, tangible_collision) != null) {
+					// Found ground below step tuah it
+					y += (_step - 1) * global.grav;
+					vspd = 0;
+					grav = 0;
+					reset_jumps();
+					stepped_down = true;
+					break;
+				}
+			}
+		}
+	}
+}
+
+// Vertical movement
+if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
+	while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
+		y += sign(vspd);
+	}
+
+	if (vspd * global.grav > 0) {
+		reset_jumps();
+	}
+
+	vspd = 0;
+	grav = 0;
+} else {
+	y += vspd;
+}
+
+// Diagonal collision safety code
+if (instance_place_check(x, y, objBlock, tangible_collision) != null) {
 	x = xprevious;
 	y = yprevious;
 	
 	if (global.forms.lunarkid) {
 		kill_player();
 	} else {
-		if (global.collision_type == 0) {
-			#region Detect horizontal collision
-			if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
-				while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
-					x += sign(hspd);
-				}
+		var _platform = instance_place_check(x, y + vspd, objPlatform, tangible_collision);
 		
-				hspd = 0;
-			}
-			#endregion
-	
-			#region Detect vertical collision
-			if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
-				while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
-					y += sign(vspd);
-				}
-		
-				if (vspd * global.grav > 0) {
-					reset_jumps();
-				}
-		
-				vspd = 0;
-				grav = 0;
-			}
-			#endregion
-	
-			#region Detect diagonal collision
-			if (instance_place_check(x + hspd, y + vspd, objBlock, tangible_collision) != null) {
-				var platform = instance_place_check(x, y + vspd, objPlatform, tangible_collision);
-				
-				if (!platform || instance_place_check(x, y, platform, tangible_collision) != null) {
-					hspd = 0;
-				} else {
-					vspd = 0;
-				}
-			}
-			#endregion
-			
-			x += hspd;
-			y += vspd;
-		
-			//Makes player move based on the block speed
-			/*if (instance_place_check(x + block.hspeed, y, objBlock, tangible_collision) == null) {
-				x += block.hspeed;
-			}
-		
-			if (instance_place_check(x, y + block.vspeed, objBlock, tangible_collision) == null) {
-				y += block.vspeed;
-			}*/
-		} else if (global.collision_type == 1) {
-			#region Detect horizontal collision
-			var block_x = move_and_collide(hspd, 0, objBlock, abs(hspd), sign(hspd));
-			if (array_length(block_x) > 0) {
-			    hspd = 0;
-			}
-			#endregion
-			
-			#region Detect vertical collision
-			var block_y = move_and_collide(0, vspd, objBlock, abs(vspd),, sign(vspd));
-			if (array_length(block_y) >= 0) {
-			    if (vspd * global.grav > 0) {
-			        reset_jumps();
-			    }
-			    
-			    vspd = 0;
-			    grav = 0;
-			}
-			#endregion
+		if (!_platform || instance_place_check(x, y, _platform, tangible_collision) != null) {
+			hspd = 0;
+		} else {
+			vspd = 0;
 		}
 	}
 }

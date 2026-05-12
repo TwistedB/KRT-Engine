@@ -47,6 +47,27 @@ function instance_place_check(x, y, obj, func = function(obj) { return true; } )
 	return found;
 }
 
+function check_slope(hspd_val, check_dist = 8) {
+	/// Checks if there's a slope to walk up and adjusts player Y accordingly
+	/// Returns the new Y position
+	
+	var new_y = y;
+	var slope_found = false;
+	
+	// Look ahead in the direction of movement
+	for (var i = 1; i <= check_dist; i++) {
+		if (instance_place_check(x + sign(hspd_val) * i, new_y + sign(global.grav), objBlock, tangible_collision) != null) {
+			new_y += sign(global.grav);
+			slope_found = true;
+		} else if (slope_found) {
+			break;
+		}
+	}
+	
+	return new_y;
+}
+
+
 function move_bounce() {
 	//Simple block bounce that will preserve height
 	
