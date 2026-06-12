@@ -55,7 +55,7 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objPoisonW
 #region Transformations        
 global.player.angle = image_angle;
 
-if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
+if (global.forms.lunarkid) {
 	#region Lunarkid functionality
 	if (is_pressed(global.controls.jump) && global.forms.vkid > 0) {
 		player_jump();
@@ -286,7 +286,6 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 
 if (!global.forms.lunarkid) {
 	#region Movement Checks
-	//If the player is frozen no movement is applied
 	if (!frozen) {
 		if (dir_right || dir_left) {
 			dir = (dir_right) ? 1 : -1; 
@@ -559,74 +558,45 @@ if (!frozen) {
 }
 
 #region Physics and Collision
-//Storing the previous x and y
 xprevious = x;
 yprevious = y;
 
-//Moving the player manually
 vspd += grav;
 
 #region Collision with block
-// Horizontal movement + slope step-up/down
-var grounded = (on_block != null);
-var slope_step = 4; //Max pixels to step up per frame
-var slope_descent = 4; //Max pixels to step down per frame
-
-if (hspd != 0) {
-	// Check if horizontal movement would collide
-	if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
-		if (grounded) {
-			var stepped = false;
-			
-			// Try stepping up 1 pixel at a time up to slope_step pixels
-			for (var _step = 1; _step <= slope_step; _step++) {
-				if (instance_place_check(x + hspd, y - _step * global.grav, objBlock, tangible_collision) == null) {
-					y -= _step * global.grav;
-					x += hspd;
-					stepped = true;
-					break;
-				}
-			}
-			
-			// Couldnt step up slope its a normal wall
-			if (!stepped) {
-				while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
-					x += sign(hspd);
-				}
-				hspd = 0;
-			}
-		} else {
-			// In air when hitting a wall
-			while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
-				x += sign(hspd);
-			}
-			hspd = 0;
-		}
-	} else {
-		x += hspd;
+if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
+	var yplus = 0;
+	
+	while (instance_place_check(x + hspd, y - yplus * global.grav, objBlock, tangible_collision) != null && yplus <= abs(hspd)) {
+		yplus++;
+	}
+	
+	if (instance_place_check(x + hspd, y - yplus * global.grav, objBlock, tangible_collision) != null) {
+		var failsafe = 0;
 		
-		// After moving horizontally, check if we need to step DOWN a slope
-		// Only apply slope descent when NOT jumping (vspd should be negative when jumping)
-		if (grounded && vspd >= 0) {
-			var stepped_down = false;
-			
-			// Try stepping down 1 pixel at a time up to slope_descent pixels
-			for (var _step = 1; _step <= slope_descent; _step++) {
-				if (instance_place_check(x, y + _step * global.grav, objBlock, tangible_collision) != null) {
-					// Found ground below step tuah it
-					y += (_step - 1) * global.grav;
-					vspd = 0;
-					grav = 0;
-					reset_jumps();
-					stepped_down = true;
-					break;
-				}
-			}
+		while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null && failsafe < 16) {
+			failsafe++;
+			x += sign(hspd);
 		}
+		
+		hspd = 0;
+	} else {
+		y -= yplus * global.grav;
 	}
 }
 
-// Vertical movement
+x += hspd;
+
+if (instance_place_check(x, y, objBlock, tangible_collision) == null && vspd * global.grav >= 0 && instance_place_check(x, y + (2 + abs(hspd)) * global.grav, objBlock, tangible_collision) != null) {
+	while (instance_place_check(x, y + global.grav, objBlock, tangible_collision) == null) {
+		y += global.grav;
+	}
+	
+	vspd = 0;
+	grav = 0;
+	reset_jumps();
+}
+
 if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
 	while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
 		y += sign(vspd);
@@ -642,7 +612,6 @@ if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
 	y += vspd;
 }
 
-// Diagonal collision safety code
 if (instance_place_check(x, y, objBlock, tangible_collision) != null) {
 	x = xprevious;
 	y = yprevious;
