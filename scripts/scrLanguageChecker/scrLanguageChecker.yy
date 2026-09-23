@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrLanguageChecker",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrLanguageChecker",
+  "parent":{
+    "name":"Dialouge",
+    "path":"folders/Scripts/Language/Dialouge.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

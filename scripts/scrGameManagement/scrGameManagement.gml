@@ -1,4 +1,6 @@
 function save_game(position) {
+	save_global()
+	
 	if (position) {
 		global.save_player.sroom = room_get_name(room);
 		global.save_player.sx = floor(objPlayer.x);
@@ -323,4 +325,33 @@ function change_language() {
 	}
 	
 	InitTranslations()
+}
+
+function save_global() {
+	var data = {
+		globalSave: global.globalSave
+	};
+	
+	var json = json_stringify(data);
+	save_file("global", json, false);
+}
+
+function load_global() {
+	if (!file_exists("global")) {
+		save_global();
+		return;
+	}
+	
+	var json = load_file("global", false);
+	
+	if (json == "" || is_undefined(json)) {
+		save_global();
+		return;
+	}
+	
+	var data = json_parse(json);
+	
+	if (is_struct(data)) {
+		if (variable_struct_exists(data, "globalSave")) {merge_struct(global.globalSave, data.globalSave)}
+	}
 }

@@ -1,20 +1,26 @@
-//Read languages.txt to see what languages are available
-var file = file_text_open_read("data/lang/languages.txt");
-
 global.languages = [];
 
-while (!file_text_eof(file))
-{
-    var line = file_text_read_string(file);
-    file_text_readln(file); // move to next line
-    
-    array_push(global.languages, line);
-}
+//Checking lang folder to see what files there are
+global.languages = languageChecker();
 
-file_text_close(file);
+if(global.globalSave.firstTime = true)
+{
+	for (var i = 0; i < array_length(global.languages); ++i) {
+	    if(os_get_language() = global.languages[i])
+		{
+			global.display.language = i;
+			global.locale = i;
+			save_config();
+		}
+	}
+	
+	global.globalSave.firstTime = false;
+	save_global()
+}
 
 //Set the first line in the array as default language
 global.locale = global.languages[global.display.language];
+
 InitTranslations();
 
 function InitTranslations()
@@ -40,9 +46,9 @@ function InitTranslations()
 	LoadLanguageFlag(base);
 }
 
-function LoadLanguageFont(_path)
+function LoadLanguageFont(_path, _name = "def")
 {
-    var font_path = _path + global.languages[global.display.language] + ".ttf";
+    var font_path = _path + _name + ".ttf";
 
     if (file_exists(font_path))
     {
