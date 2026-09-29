@@ -337,7 +337,9 @@ function save_global() {
 }
 
 function load_global() {
+	//if global does not exist create it.
 	if (!file_exists("global")) {
+		init_global_save();
 		save_global();
 		return;
 	}
@@ -345,13 +347,19 @@ function load_global() {
 	var json = load_file("global", false);
 	
 	if (json == "" || is_undefined(json)) {
+		init_global_save();
 		save_global();
 		return;
 	}
 	
 	var data = json_parse(json);
 	
+	// Always create the default variables first
+	init_global_save();
+	
 	if (is_struct(data)) {
-		if (variable_struct_exists(data, "globalSave")) {merge_struct(global.globalSave, data.globalSave)}
+		if (variable_struct_exists(data, "globalSave")) {
+			merge_struct(global.globalSave, data.globalSave);
+		}
 	}
 }

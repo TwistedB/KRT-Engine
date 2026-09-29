@@ -8,6 +8,8 @@ u_texelsPerPixel = shader_get_uniform(shdPxUpscale, "u_texelsPerPixel");
 pause_delay = global.total_pause_delay;
 pause_screen = noone;
 
+depth = -999;
+
 #region Online
 __ONLINE_socket = undefined;
 __ONLINE_udpsocket = undefined;

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrInitDebug",
   "parent":{
-    "name":"Initialization",
-    "path":"folders/Scripts/System/Initialization.yy",
+    "name":"Config",
+    "path":"folders/Scripts/System/Initialization/Config.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

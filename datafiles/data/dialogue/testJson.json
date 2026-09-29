@@ -48,7 +48,7 @@
       "texts": "TL1",
 	  "focusId": "guy1",
       "characters": [
-        { "id": "guy1", "pos": "mid_right", "enterAnim": "slide_left" },
+        { "id": "guy1", "pos": "mid_right", "enterAnim": "slide_left", "shakeBig": "15"},
       ]
     },
     {

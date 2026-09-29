@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrInitGlobalSave",
   "parent":{
-    "name":"Initialization",
-    "path":"folders/Scripts/System/Initialization.yy",
+    "name":"Globals",
+    "path":"folders/Scripts/System/Initialization/Globals.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrOptionsConfig",
   "parent":{
-    "name":"Initialization",
-    "path":"folders/Scripts/System/Initialization.yy",
+    "name":"Config",
+    "path":"folders/Scripts/System/Initialization/Config.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

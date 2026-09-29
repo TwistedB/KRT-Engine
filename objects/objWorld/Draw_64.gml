@@ -75,3 +75,27 @@ if (global.overlay && global.debug_enable) {
     }
 }
 #endregion
+
+#region Black Bars
+if(global.display.fullscreen)
+{
+	var windowWidth = window_get_width();
+	var windowHeight = window_get_height();
+
+	var guiWidth = display_get_gui_width();
+	var guiHeight = display_get_gui_height();
+
+	var offsetX = (windowWidth - guiWidth) / 2;
+	var offsetY = (windowHeight - guiHeight) / 2;
+
+	draw_set_color(c_black);
+
+	// Left
+	draw_rectangle(-offsetX, 0, -1, guiHeight, false);
+
+	// Right
+	draw_rectangle(guiWidth, 0, guiWidth + offsetX, guiHeight, false);
+
+	draw_set_color(c_white);
+}
+#endregion

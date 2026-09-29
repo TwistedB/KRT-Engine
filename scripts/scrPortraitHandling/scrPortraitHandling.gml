@@ -74,6 +74,7 @@ function VNPortraitAdd(_id, _sprite, _posName, _enterAnim)
 		yScaleGoTo: 1,
 
 		shakeNum: 0,
+		shakeAmount: 0,
 
 		removeAfter: false
 	};
@@ -112,6 +113,13 @@ function VNPortraitUpdate(_id, _data)
 	if(variable_struct_exists(_data, "shake"))
 	{
 		a.shakeNum = _data.shake;
+		a.shakeAmount = 5;
+	}
+	
+	if(variable_struct_exists(_data, "shakeBig"))
+	{
+		a.shakeNum = _data.shakeBig;
+		a.shakeAmount = 10;
 	}
 
 	portraitActors[whichOne] = a;
@@ -224,8 +232,8 @@ function VNportraitHandling()
 
 		if(a.shakeNum > 0)
 		{
-			drawX += irandom_range(-a.shakeNum, a.shakeNum);
-			drawY += irandom_range(-a.shakeNum, a.shakeNum);
+			drawX += irandom_range(-a.shakeAmount, a.shakeAmount);
+			drawY += irandom_range(-a.shakeAmount, a.shakeAmount);
 		}
 
 		draw_sprite_ext(a.sprite, 0, drawX, drawY, a.xScaleNum, a.yScaleNum, 0, a.col, a.alphaNum);

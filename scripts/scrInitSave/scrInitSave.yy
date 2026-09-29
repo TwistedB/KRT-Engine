@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scrInitGlobals",
+  "%Name":"scrInitSave",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scrInitGlobals",
+  "name":"scrInitSave",
   "parent":{
     "name":"Globals",
     "path":"folders/Scripts/System/Initialization/Globals.yy",

@@ -1,4 +1,6 @@
 //The default options
-global.globalSave = {
-	firstTime: false,
-};
+function init_global_save() {
+	global.globalSave = {
+		firstTime: true,
+	};
+}

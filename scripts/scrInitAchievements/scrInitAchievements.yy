@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrInitAchievements",
   "parent":{
-    "name":"Initialization",
-    "path":"folders/Scripts/System/Initialization.yy",
+    "name":"Misc",
+    "path":"folders/Scripts/System/Initialization/Misc.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

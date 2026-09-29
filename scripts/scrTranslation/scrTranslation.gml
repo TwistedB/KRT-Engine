@@ -1,3 +1,5 @@
+load_global();
+
 global.languages = [];
 
 //Checking lang folder to see what files there are
@@ -5,12 +7,29 @@ global.languages = languageChecker();
 
 if(global.globalSave.firstTime = true)
 {
+	var found = false;
+	
+	//Checking languages to see if your system matches with a folder
 	for (var i = 0; i < array_length(global.languages); ++i) {
 	    if(os_get_language() = global.languages[i])
 		{
 			global.display.language = i;
 			global.locale = i;
+			found = true;
+			
 			save_config();
+		}
+	}
+	
+	//if it does not match, use the default language automatically
+	if(found = false)
+	{
+		for (var i = 0; i < array_length(global.languages); ++i)
+		{
+		    if(global.languages[i] = global.defaultLanguage)
+			{
+				global.display.language = i;
+			}
 		}
 	}
 	
