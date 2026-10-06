@@ -4,6 +4,8 @@ function Option(label, on_select, get_value) constructor {
 	self.get_value = get_value;
 }
 
+controller_ready = false;
+
 options = [
 	[ //Options
 		new Option("Music: ", function() {
@@ -77,8 +79,18 @@ options = [
 			return "";
 		}),
 		
-		new Option("Change Controls", function() {
-			menu = MENU_OPTIONS.CONTROLS;
+		new Option("Change Keyboard Controls", function() {
+			menu = MENU_OPTIONS.KCONTROLS;
+			select[MENU_OPTIONS.KCONTROLS] = 0;
+			audio_play_sound(sndJump, 0, false);
+		}, function() {
+			return "";
+		}),
+		
+		new Option("Change Controller Controls", function() {
+			menu = MENU_OPTIONS.CCONTROLS;
+			select[MENU_OPTIONS.CCONTROLS] = 0;
+			controller_ready = false;
 			audio_play_sound(sndJump, 0, false);
 		}, function() {
 			return "";
@@ -92,7 +104,7 @@ options = [
 		}),
 	],
 	
-	[ //Controls
+	[ // Keyboard Controls
 		"Left",
 		"Right",
 		"Up",
@@ -101,7 +113,24 @@ options = [
 		"Shoot",
 		"Restart",
 		"Pause",
-		
+
+		new Option("Reset Defaults", function() {
+			scrControlsConfig();
+		}, function() {
+			return "";
+		})
+	],
+
+	[ // Controller Controls
+		"Left",
+		"Right",
+		"Up",
+		"Down",
+		"Jump",
+		"Shoot",
+		"Restart",
+		"Pause",
+
 		new Option("Reset Defaults", function() {
 			scrControlsConfig();
 		}, function() {
@@ -178,11 +207,12 @@ options = [
 
 enum MENU_OPTIONS {
 	OPTIONS,
-	CONTROLS,
+	KCONTROLS,
+	CCONTROLS,
 	ONLINE
 }
 
 menu = MENU_OPTIONS.OPTIONS;
 select = array_create(array_length(options), 0);
-spacing = 50;
+spacing = 30;
 changing_controls = false;

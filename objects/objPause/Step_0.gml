@@ -2,12 +2,12 @@ if(freezeControls = false)
 {
 	change_volume();
 	
-	if(keyboard_check_pressed(global.controls.down))
+	if(is_pressed(global.controls.down))
 	{
 		pauseOption++;
 	}
 	
-	if(keyboard_check_pressed(global.controls.up))
+	if(is_pressed(global.controls.up))
 	{
 		pauseOption++;
 	}
@@ -22,7 +22,7 @@ if(freezeControls = false)
 		pauseOption = 1;
 	}
 	
-	if(keyboard_check_pressed(global.controls.jump))
+	if(is_pressed(global.controls.jump))
 	{
 		if(pauseOption = 1)
 		{

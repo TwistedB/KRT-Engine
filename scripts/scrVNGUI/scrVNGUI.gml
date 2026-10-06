@@ -1,5 +1,5 @@
 function scrVNGUI(){
-	draw_set_font(font);
+	draw_set_font(VNFont);
 	draw_set_colour(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -56,7 +56,7 @@ function VNtypeText()
 //used to linebreak proper
 function VNWrapText(_text, _maxWidth)
 {
-	draw_set_font(font);
+	draw_set_font(VNFont);
 
 	var words = string_split(_text, " ");
 	var line = "";

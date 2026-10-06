@@ -201,3 +201,11 @@ if (global.debug_enable && global.game_started) {
 	}
 }
 #endregion
+
+if(gamepad_is_connected(global.controller))
+{
+	global.controllerConnected = true;
+}else
+{
+	global.controllerConnected = false;
+}

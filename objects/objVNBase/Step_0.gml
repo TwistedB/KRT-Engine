@@ -1,4 +1,4 @@
-if(keyboard_check_pressed(dioControls.skip) && modeLock = false)
+if(is_pressed(dioControls.skip) && modeLock = false)
 {
 	if(mode = MODE_VN.SKIP)
 	{
@@ -9,7 +9,7 @@ if(keyboard_check_pressed(dioControls.skip) && modeLock = false)
 	}
 }
 
-if(keyboard_check_pressed(dioControls.auto) && modeLock = false)
+if(is_pressed(dioControls.auto) && modeLock = false)
 {
 	if(mode = MODE_VN.AUTO)
 	{
@@ -21,7 +21,7 @@ if(keyboard_check_pressed(dioControls.auto) && modeLock = false)
 	}
 }
 
-if(keyboard_check_pressed(dioControls.backlog) && modeLock = false)
+if(is_pressed(dioControls.backlog) && modeLock = false)
 {
 	if(mode = MODE_VN.BACKLOG)
 	{
@@ -43,12 +43,12 @@ if(mode = MODE_VN.BACKLOG)
 
 if(backlogOpen)
 {
-	if(keyboard_check(dioControls.up)) 
+	if(is_held(dioControls.up)) 
 	{
 		backlogScroll -= 4;
 	}
 
-	if(keyboard_check(dioControls.down)) 
+	if(is_held(dioControls.down)) 
 	{
 		backlogScroll += 4;
 	}

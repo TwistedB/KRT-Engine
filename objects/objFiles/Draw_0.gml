@@ -51,7 +51,24 @@ for (var i = 0; i < global.total_saves; i++) {
 
 draw_set_font(fntMenu3);
 draw_set_halign(fa_center);
-draw_text(225, 550, "[Z] Back");
-draw_text(380, 550, "[Enter] Options");
-draw_text(550, 550, "[Shift] Accept");
+
+var back_bind;
+var options_bind;
+var accept_bind;
+
+if (global.controllerConnected = false)
+{
+	back_bind = control_bind(global.controls_menu.back.keyboard);
+	accept_bind = control_bind(global.controls_menu.accept.keyboard);
+	options_bind = control_bind(global.controls_menu.options.keyboard);
+}else
+{
+	back_bind = control_bind(global.controls_menu.back.controller, true);
+	accept_bind = control_bind(global.controls_menu.accept.controller, true);
+	options_bind = control_bind(global.controls_menu.options.controller, true);
+}
+	
+draw_text(225, 550, string("[{0}] Back", back_bind));
+draw_text(380, 550, string("[{0}] Options", options_bind));
+draw_text(550, 550, string("[{0}] Accept", accept_bind));
 draw_set_halign(fa_left);

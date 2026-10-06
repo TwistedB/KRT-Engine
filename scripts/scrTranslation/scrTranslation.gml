@@ -44,6 +44,12 @@ InitTranslations();
 
 function InitTranslations()
 {
+	if (global.display.language >= array_length(global.languages))
+	{
+	    global.display.language = 0;
+	    save_config();
+	}
+	
     global.locale = global.languages[global.display.language];
 
     var base = "data/lang/" + global.locale + "/";
@@ -72,30 +78,30 @@ function LoadLanguageFont(_path, _name = "def")
     if (file_exists(font_path))
     {
         // Remove previous font
-        if (font_exists(global.display.languageFont))
+        if (font_exists(font))
         {
-			if(global.display.languageFont != global.defaultFont)
+			if(font != global.defaultFont)
 			{
-				font_delete(global.display.languageFont);
+				font_delete(font);
 			}
         }
 
         // Create font
-        global.display.languageFont = font_add(font_path, 24, false, false, 32, 127);
+        font = font_add(font_path, 24, false, false, 32, 127);
     }
     else
     {
         // Remove previous font
-        if (font_exists(global.display.languageFont))
+        if (font_exists(font))
         {
-			if(global.display.languageFont != global.defaultFont)
+			if(font != global.defaultFont)
 			{
-				font_delete(global.display.languageFont);
+				font_delete(font);
 			}
         }
 		
         // default font
-        global.display.languageFont = global.defaultFont;
+        font = global.defaultFont;
     }
 }
 

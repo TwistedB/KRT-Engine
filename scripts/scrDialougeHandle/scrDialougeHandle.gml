@@ -166,7 +166,7 @@ function handleVNTyping()
 	{
 		VNtypeText();
 
-		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
+		if(is_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 		{
 			text = textFull;
 			cutoff = string_length(textFull);
@@ -192,7 +192,7 @@ function waitForVNPlayerAdvance()
 	
 	if(mode = MODE_VN.NORMAL)
 	{
-		if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
+		if(is_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 		{
 			scrVNNext();
 		}
@@ -233,19 +233,19 @@ function handleVNChoice()
 {
 	var c = advance.choices;
 
-	if keyboard_check_pressed(dioControls.up) && backlogOpen = false
+	if is_pressed(dioControls.up) && backlogOpen = false
 	{
 		choiceIndex--;
 	}
 
-	if keyboard_check_pressed(dioControls.down) && backlogOpen = false
+	if is_pressed(dioControls.down) && backlogOpen = false
 	{
 		choiceIndex++;
 	}
 
 	choiceIndex = clamp(choiceIndex,0,array_length(c)-1);
 
-	if(keyboard_check_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
+	if(is_pressed(dioControls.advance) && inputLock <= 0 && backlogOpen = false)
 	{
 		inputLock = 2;
 		

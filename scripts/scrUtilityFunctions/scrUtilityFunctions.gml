@@ -32,6 +32,20 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_text(x, y, text);
 }
 
+function draw_text_transformed_outline(x, y, text, border_color, xscale = 1, yscale = 1, angle = 0) {
+	var color = draw_get_color;
+	draw_set_color(border_color);
+
+	for (var i = -1; i < 2; i++) {
+	    for (var j = -1; j < 2; j++) {
+	        draw_text_transformed(x + j, y + i, text, xscale, yscale, angle);
+	    }
+	}
+
+	draw_set_colour(color);
+	draw_text_transformed(x, y, text, xscale, yscale, angle);
+}
+
 function draw_sprite_fog(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha, fog_color = c_black) {
 	gpu_set_fog(true, fog_color, 0, 0);
 	draw_sprite_ext(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha);

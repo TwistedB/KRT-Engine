@@ -1,26 +1,37 @@
-font = fntTrajanus
+VNFont = fntTrajanus
 
 with(objPlayer)
 {
 	objPlayer.frozen = true;
 }
 
-font_enable_effects(font, true, 
+font_enable_effects(VNFont, true, 
 {
 	outlineEnable: true,
 	outlineDistance: 4,
 	outlineColor: c_black,
 });
 
-dioControls =
-{
-	auto: ord("A"),
-	skip: ord("S"),
-	backlog: ord("G"),
+dioControls = {
+	auto: {
+		keyboard: ord("A"),
+		controller: -1
+	},
+	
+	skip: {
+		keyboard: ord("S"),
+		controller: -1
+	},
+	
+	backlog: {
+		keyboard: ord("G"),
+		controller: -1
+	},
+	
 	advance: global.controls.jump,
 	up: global.controls.up,
 	down: global.controls.down
-}
+};
 
 backlogOpen = false;
 backlogScroll = 0;
