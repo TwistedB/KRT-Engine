@@ -33,7 +33,6 @@ if (changing_controls && menu == MENU_OPTIONS.KCONTROLS)
 
 
 // CHANGE CONTROLLER CONTROL
-// CHANGE CONTROLLER CONTROL
 if (changing_controls && menu == MENU_OPTIONS.CCONTROLS)
 {
 	if (global.controllerConnected)
