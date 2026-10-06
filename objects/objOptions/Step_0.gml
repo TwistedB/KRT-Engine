@@ -33,12 +33,17 @@ if (changing_controls && menu == MENU_OPTIONS.KCONTROLS)
 
 
 // CHANGE CONTROLLER CONTROL
+// CHANGE CONTROLLER CONTROL
 if (changing_controls && menu == MENU_OPTIONS.CCONTROLS)
 {
 	if (global.controllerConnected)
 	{
+		// Wait until all controller buttons AND the left stick are released.
 		if (!controller_ready)
 		{
+			var stick_h = gamepad_axis_value(global.controller, gp_axislh);
+			var stick_v = gamepad_axis_value(global.controller, gp_axislv);
+			
 			if (!gamepad_button_check(global.controller, gp_face1)
 			&& !gamepad_button_check(global.controller, gp_face2)
 			&& !gamepad_button_check(global.controller, gp_face3)
@@ -54,7 +59,9 @@ if (changing_controls && menu == MENU_OPTIONS.CCONTROLS)
 			&& !gamepad_button_check(global.controller, gp_padu)
 			&& !gamepad_button_check(global.controller, gp_padd)
 			&& !gamepad_button_check(global.controller, gp_padl)
-			&& !gamepad_button_check(global.controller, gp_padr))
+			&& !gamepad_button_check(global.controller, gp_padr)
+			&& abs(stick_h) < 0.5
+			&& abs(stick_v) < 0.5)
 			{
 				controller_ready = true;
 			}
@@ -62,6 +69,7 @@ if (changing_controls && menu == MENU_OPTIONS.CCONTROLS)
 			exit;
 		}
 		
+		// Check normal controller buttons first.
 		var buttons = [
 			gp_face1,
 			gp_face2,
@@ -98,7 +106,46 @@ if (changing_controls && menu == MENU_OPTIONS.CCONTROLS)
 				exit;
 			}
 		}
+		
+		// Check left stick as D-Pad.
+		var stick_h = gamepad_axis_value(global.controller, gp_axislh);
+		var stick_v = gamepad_axis_value(global.controller, gp_axislv);
+		
+		var stick_button = -1;
+		
+		if (stick_h < -0.5)
+		{
+			stick_button = gp_padl;
+		}
+		else if (stick_h > 0.5)
+		{
+			stick_button = gp_padr;
+		}
+		else if (stick_v < -0.5)
+		{
+			stick_button = gp_padu;
+		}
+		else if (stick_v > 0.5)
+		{
+			stick_button = gp_padd;
+		}
+		
+		if (stick_button != -1)
+		{
+			var control_name = string_lower(
+				options[MENU_OPTIONS.CCONTROLS][select[menu]]
+			);
+			
+			var control = variable_struct_get(global.controls, control_name);
+			control.controller = stick_button;
+			
+			save_config();
+			audio_play_sound(sndJump, 0, false);
+			changing_controls = false;
+			exit;
+		}
 	}
+	
 	exit;
 }
 

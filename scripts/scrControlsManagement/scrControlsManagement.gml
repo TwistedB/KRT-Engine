@@ -25,12 +25,35 @@ function is_held(control)
 				return true;
 		}
 		
-		if (control.controller != -1)
+		if (control.controller != -1 && gamepad_is_connected(global.controller))
 		{
-			if (gamepad_is_connected(global.controller))
+			var button = control.controller;
+			
+			if (gamepad_button_check(global.controller, button))
+				return true;
+			
+			// D-Pad also responds to left analog stick
+			switch (button)
 			{
-				if (gamepad_button_check(global.controller, control.controller))
-					return true;
+				case gp_padu:
+					if (gamepad_axis_value(global.controller, gp_axislv) < -0.5)
+						return true;
+				break;
+				
+				case gp_padd:
+					if (gamepad_axis_value(global.controller, gp_axislv) > 0.5)
+						return true;
+				break;
+				
+				case gp_padl:
+					if (gamepad_axis_value(global.controller, gp_axislh) < -0.5)
+						return true;
+				break;
+				
+				case gp_padr:
+					if (gamepad_axis_value(global.controller, gp_axislh) > 0.5)
+						return true;
+				break;
 			}
 		}
 		
@@ -39,6 +62,7 @@ function is_held(control)
 	
 	return keyboard_check(control);
 }
+
 
 function is_pressed(control)
 {
@@ -54,6 +78,15 @@ function is_pressed(control)
 				if (gamepad_button_check_pressed(global.controller, button))
 					return true;
 			}
+			
+			// Left analog stick
+			if (gamepad_axis_value(global.controller, gp_axislh) < -0.5
+			|| gamepad_axis_value(global.controller, gp_axislh) > 0.5
+			|| gamepad_axis_value(global.controller, gp_axislv) < -0.5
+			|| gamepad_axis_value(global.controller, gp_axislv) > 0.5)
+			{
+				return true;
+			}
 		}
 		
 		return false;
@@ -61,18 +94,85 @@ function is_pressed(control)
 	
 	if (is_struct(control))
 	{
+		// Keyboard
 		if (control.keyboard != -1)
 		{
 			if (keyboard_check_pressed(control.keyboard))
 				return true;
 		}
 		
-		if (control.controller != -1)
+		// Controller
+		if (control.controller != -1
+		&& gamepad_is_connected(global.controller))
 		{
-			if (gamepad_is_connected(global.controller))
+			var button = control.controller;
+			
+			// Normal controller button
+			if (gamepad_button_check_pressed(global.controller, button))
+				return true;
+			
+			// D-Pad also responds to left analog stick
+			switch (button)
 			{
-				if (gamepad_button_check_pressed(global.controller, control.controller))
-					return true;
+				case gp_padu:
+					if (gamepad_axis_value(global.controller, gp_axislv) < -0.5)
+					{
+						if (global.stick_up_ready)
+						{
+							global.stick_up_ready = false;
+							return true;
+						}
+					}
+					else
+					{
+						global.stick_up_ready = true;
+					}
+				break;
+				
+				case gp_padd:
+					if (gamepad_axis_value(global.controller, gp_axislv) > 0.5)
+					{
+						if (global.stick_down_ready)
+						{
+							global.stick_down_ready = false;
+							return true;
+						}
+					}
+					else
+					{
+						global.stick_down_ready = true;
+					}
+				break;
+				
+				case gp_padl:
+					if (gamepad_axis_value(global.controller, gp_axislh) < -0.5)
+					{
+						if (global.stick_left_ready)
+						{
+							global.stick_left_ready = false;
+							return true;
+						}
+					}
+					else
+					{
+						global.stick_left_ready = true;
+					}
+				break;
+				
+				case gp_padr:
+					if (gamepad_axis_value(global.controller, gp_axislh) > 0.5)
+					{
+						if (global.stick_right_ready)
+						{
+							global.stick_right_ready = false;
+							return true;
+						}
+					}
+					else
+					{
+						global.stick_right_ready = true;
+					}
+				break;
 			}
 		}
 		
@@ -81,6 +181,7 @@ function is_pressed(control)
 	
 	return keyboard_check_pressed(control);
 }
+
 
 function is_released(control)
 {
@@ -109,12 +210,35 @@ function is_released(control)
 				return true;
 		}
 		
-		if (control.controller != -1)
+		if (control.controller != -1 && gamepad_is_connected(global.controller))
 		{
-			if (gamepad_is_connected(global.controller))
+			var button = control.controller;
+			
+			if (gamepad_button_check_released(global.controller, button))
+				return true;
+			
+			// D-Pad also responds to left analog stick
+			switch (button)
 			{
-				if (gamepad_button_check_released(global.controller, control.controller))
-					return true;
+				case gp_padu:
+					if (gamepad_axis_value(global.controller, gp_axislv) >= -0.5)
+						return true;
+				break;
+				
+				case gp_padd:
+					if (gamepad_axis_value(global.controller, gp_axislv) <= 0.5)
+						return true;
+				break;
+				
+				case gp_padl:
+					if (gamepad_axis_value(global.controller, gp_axislh) >= -0.5)
+						return true;
+				break;
+				
+				case gp_padr:
+					if (gamepad_axis_value(global.controller, gp_axislh) <= 0.5)
+						return true;
+				break;
 			}
 		}
 		
