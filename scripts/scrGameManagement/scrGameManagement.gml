@@ -305,13 +305,13 @@ function set_display() {
 }
 
 function change_volume(type = "master") {
-	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
+	var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
 	global.display[$ type + "_volume"] += 0.01 * dir;
 	global.display[$ type + "_volume"] = clamp(global.display[$ type + "_volume"], 0, 1);
 }
 
 function change_language() {
-	var dir = (is_pressed(global.controls.right) - is_pressed(global.controls.left));
+	var dir = (is_pressed(global.controls_menu.right) - is_pressed(global.controls_menu.left));
 	global.display.language += 1 * dir;
 	
 	if(global.display.language < 0)

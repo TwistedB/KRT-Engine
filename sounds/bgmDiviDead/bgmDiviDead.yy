@@ -7,10 +7,10 @@
   },
   "bitDepth":1,
   "channelFormat":0,
-  "compression":0,
-  "compressionQuality":4,
+  "compression":2,
+  "compressionQuality":2,
   "conversionMode":0,
-  "duration":213.27682,
+  "duration":213.27681,
   "exportDir":"",
   "name":"bgmDiviDead",
   "parent":{
@@ -20,7 +20,7 @@
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
-  "sampleRate":44100,
+  "sampleRate":32000,
   "soundFile":"bgmDiviDead.wav",
   "volume":1.0,
 }
