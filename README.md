@@ -1,15 +1,14 @@
-# KRT Engine
+# KRT Engine (nicknamed Karito Engine)
 Edited version of K&R GMS2 engine that includes
 better save system that doesn't break when new variables are added
 better options/pause system 
 improved music system 
 built in dialogue system with language support
 built in achievement system 
-ported epic camera over
+built in epic camera 
 screen shake and screen flash built in 
 event system for story progression
-
-a few more things are planned such as more neat player movement and fixed platforms but i'll finish those at a later date. 
+slopes
 
 # WARNING
 this engine was made pretty much for me and me only so a lot of the code may be confusing
