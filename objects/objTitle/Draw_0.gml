@@ -1,7 +1,7 @@
 draw_set_font(fntTitle);
 draw_set_color(c_black);
 draw_set_halign(fa_center);
-draw_text(400, 40, "KingSlendy\nRedBatNick\nGMS2 Engine");
+draw_text(400, 40, "KingSlendy\nRedBatNick\nTwistedB\nGMS2 Engine");
 
 var accept_bind;
 
