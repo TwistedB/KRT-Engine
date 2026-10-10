@@ -79,9 +79,7 @@ switch (menu)
 	
 	case MENU_OPTIONS.OPTIONS:
 	case MENU_OPTIONS.ONLINE:
-		
 		index = 0;
-		
 	break;
 }
 
@@ -90,20 +88,11 @@ for (var i = index; i < length; i++)
 {
 	var curr_option = option[i];
 	
-	draw_text(
-		x,
-		y + spacing * i,
-		curr_option.label + curr_option.get_value()
-	);
+	draw_text(x, y + spacing * i, curr_option.label + curr_option.get_value());
 }
 
 
-draw_sprite(
-	sprCherry,
-	0,
-	x - 20,
-	y + 15 + spacing * selected
-);
+draw_sprite(sprCherry, 0, x - 20, y + 15 + spacing * selected);
 
 // BOTTOM PROMPTS
 draw_set_font(fntMenu3);
@@ -148,23 +137,9 @@ else if (menu == MENU_OPTIONS.KCONTROLS)
 	}
 	else
 	{
-		draw_text(
-			225,
-			550,
-			string(
-				"[{0}] Back",
-				control_bind(global.controls_menu.back.keyboard)
-			)
-		);
+		draw_text(225, 550, string("[{0}] Back", control_bind(global.controls_menu.back.keyboard)));
 		
-		draw_text(
-			550,
-			550,
-			string(
-				"[{0}] Accept",
-				control_bind(global.controls_menu.accept.keyboard)
-			)
-		);
+		draw_text(550, 550, string( "[{0}] Accept", control_bind(global.controls_menu.accept.keyboard)));
 	}
 }
 else

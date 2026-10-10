@@ -1,3 +1,4 @@
+//Default main controls
 global.controls = {
 	left: {
 		keyboard: vk_left,
