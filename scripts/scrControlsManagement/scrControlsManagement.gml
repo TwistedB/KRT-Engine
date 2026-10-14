@@ -325,7 +325,7 @@ function control_bind(control, controller = false)
 			case gp_shoulderlb: return "LT";
 			case gp_shoulderrb: return "RT";
 			
-			case gp_select: return "Back";
+			case gp_select: return "Select";
 			case gp_start: return "Start";
 			
 			case gp_stickl: return "L3";

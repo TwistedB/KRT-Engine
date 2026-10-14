@@ -202,6 +202,7 @@ if (global.debug_enable && global.game_started) {
 }
 #endregion
 
+#region Gamepad detection
 if(gamepad_is_connected(global.controller))
 {
 	global.controllerConnected = true;
@@ -209,3 +210,26 @@ if(gamepad_is_connected(global.controller))
 {
 	global.controllerConnected = false;
 }
+
+// Controller input
+if (global.controllerConnected = true) {
+    for (var i = 0; i < 16; i++) {
+        if (gamepad_button_check_pressed(0, i)) {
+            global.lastInputDevice = 1;
+            break;
+        }
+    }
+
+	if (abs(gamepad_axis_value(0, gp_axislh)) > 0.5
+	|| abs(gamepad_axis_value(0, gp_axislv)) > 0.5
+	|| abs(gamepad_axis_value(0, gp_axisrh)) > 0.5
+	|| abs(gamepad_axis_value(0, gp_axisrv)) > 0.5) {
+	    global.lastInputDevice = 1;
+	}
+}
+
+// Keyboard input
+if (keyboard_check_pressed(vk_anykey)) {
+    global.lastInputDevice = 0;
+}
+#endregion

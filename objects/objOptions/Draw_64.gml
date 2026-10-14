@@ -33,11 +33,7 @@ switch (menu)
 				bind = "---";
 			}
 			
-			draw_text(
-				x,
-				y + spacing * index,
-				string("{0} Button: {1}", curr_option, bind)
-			);
+			draw_text(x, y + spacing * index, string("{0} Button: {1}", curr_option, bind));
 			
 			index++;
 		}
@@ -65,11 +61,7 @@ switch (menu)
 				bind = "---";
 			}
 			
-			draw_text(
-				x,
-				y + spacing * index,
-				string("{0} Button: {1}", curr_option, bind)
-			);
+			draw_text(x, y + spacing * index, string("{0} Button: {1}", curr_option, bind));
 			
 			index++;
 		}
@@ -110,23 +102,9 @@ if (menu == MENU_OPTIONS.CCONTROLS)
 	}
 	else
 	{
-		draw_text(
-			225,
-			550,
-			string(
-				"[{0}] Back",
-				control_bind(global.controls_menu.back.controller, true)
-			)
-		);
+		draw_text(225, 550, string("[{0}] Back", control_bind(global.controls_menu.back.controller, true)));
 		
-		draw_text(
-			550,
-			550,
-			string(
-				"[{0}] Accept",
-				control_bind(global.controls_menu.accept.controller, true)
-			)
-		);
+		draw_text(550, 550, string("[{0}] Accept", control_bind(global.controls_menu.accept.controller, true)));
 	}
 }
 else if (menu == MENU_OPTIONS.KCONTROLS)

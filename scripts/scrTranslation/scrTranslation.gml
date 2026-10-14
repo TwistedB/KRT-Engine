@@ -134,18 +134,32 @@ function Text(key)
 {
 	var text = "";
 	
-	if(global.translations[? key] != undefined)
+	if (global.translations[? key] != undefined)
 	{
-		//Get language file and load the 2 column and see if key matches
-		text = global.locData[# 1, global.translations[? key]]
-		var a = argument_count > 1 ? argument[1] : "";
-		text = string_replace_all(text, "{a}", a);
-	}else
+		text = global.locData[# 1, global.translations[? key]];
+	}
+	else
 	{
 		// if it doesnt return text
 		text = key;
 	}
 	
-	//Load the text that is related to the key and return as a string
+	// Replace control placeholders
+	var controlNames = variable_struct_get_names(global.controls);
+
+	for (var i = 0; i < array_length(controlNames); i++)
+	{
+		var controlName = controlNames[i];
+		var control = global.controls[$ controlName];
+	
+		var bind = (global.lastInputDevice == 1) ? control_bind(control.controller, true) : control_bind(control.keyboard);
+	
+		text = string_replace_all(text, "{" + controlName + "}", bind);
+	}
+	
+	// Replace {a} argument
+	var a = argument_count > 1 ? argument[1] : "";
+	text = string_replace_all(text, "{a}", a);
+	
 	return text;
 }

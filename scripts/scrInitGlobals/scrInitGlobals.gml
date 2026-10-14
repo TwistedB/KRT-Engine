@@ -8,13 +8,13 @@ global.caption_last = ""; //Keeps track of the last caption
 global.defaultFont = fntOptions;
 global.defaultFlag = sprFlagPlaceholder;
 
-global.controllerConnected = false;
-
 global.dialoguePlaying = false;
 
 global.defaultLanguage = "en";
 
 global.controller = 0;
+global.lastInputDevice = 0;
+global.controllerConnected = false;
 
 global.auto_save = false; //Sets if the game will save after spawning the player
 global.save_num = 0; //The current save file
