@@ -367,6 +367,7 @@
     {"name":"sprLadderHorizontal","order":1,"path":"sprites/sprLadderHorizontal/sprLadderHorizontal.yy",},
     {"name":"sprLadderVertical","order":2,"path":"sprites/sprLadderVertical/sprLadderVertical.yy",},
     {"name":"sprLanders","order":1,"path":"sprites/sprLanders/sprLanders.yy",},
+    {"name":"sprLogo","order":2,"path":"sprites/sprLogo/sprLogo.yy",},
     {"name":"sprLowGravVine","order":4,"path":"sprites/sprLowGravVine/sprLowGravVine.yy",},
     {"name":"sprLowJumpRefresh","order":2,"path":"sprites/sprLowJumpRefresh/sprLowJumpRefresh.yy",},
     {"name":"sprMiniLeft","order":1,"path":"sprites/sprMiniLeft/sprMiniLeft.yy",},

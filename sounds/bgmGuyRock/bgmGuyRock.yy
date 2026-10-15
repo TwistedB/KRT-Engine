@@ -10,7 +10,7 @@
   "compression":1,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":190.45877,
+  "duration":190.3984,
   "exportDir":"",
   "name":"bgmGuyRock",
   "parent":{

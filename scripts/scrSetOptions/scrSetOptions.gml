@@ -4,7 +4,9 @@ global.total_saves = 3; //The number of total save files to use
 global.start_room = rSampleRoom; //The room to start in
 global.auto_save_items = false; //If the items should be saved when picked up
 
-global.title_room = rTitle;
+global.title_room = rTitle; //The title screen
+
+global.default_music = bgmGuyRock; //The song that plays in options, title, and files
 
 global.death_music = true; //Sets if the game over music should play
 global.time_when_dead = false; //Keeping track of the time even when player is dead

@@ -504,6 +504,7 @@
     {"id":{"name":"sprLadderHorizontal","path":"sprites/sprLadderHorizontal/sprLadderHorizontal.yy",},},
     {"id":{"name":"sprLadderVertical","path":"sprites/sprLadderVertical/sprLadderVertical.yy",},},
     {"id":{"name":"sprLanders","path":"sprites/sprLanders/sprLanders.yy",},},
+    {"id":{"name":"sprLogo","path":"sprites/sprLogo/sprLogo.yy",},},
     {"id":{"name":"sprLowGravVine","path":"sprites/sprLowGravVine/sprLowGravVine.yy",},},
     {"id":{"name":"sprLowJumpRefresh","path":"sprites/sprLowJumpRefresh/sprLowJumpRefresh.yy",},},
     {"id":{"name":"sprMiniDown","path":"sprites/sprMiniDown/sprMiniDown.yy",},},

@@ -36,7 +36,7 @@ function get_music() {
 			case rTitle:
 			case rFiles:
 			case rOptions:
-			    music = bgmGuyRock;
+			    music = global.default_music;
 			    break;
 		}
 	} else {
