@@ -105,6 +105,43 @@ function LoadLanguageFont(_path, _name = "def")
     }
 }
 
+//switch fonts
+function SwitchLanguageFont(_name = "def")
+{
+	//Get current language
+	var _path = "data/lang/" + global.locale + "/";
+	var font_path = _path + _name + ".ttf";
+	
+    if (file_exists(font_path))
+    {
+        // Remove previous font
+        if (font_exists(font))
+        {
+			if(font != global.defaultFont)
+			{
+				font_delete(font);
+			}
+        }
+
+        // Create font
+        font = font_add(font_path, 24, false, false, 32, 127);
+    }
+    else
+    {
+        // Remove previous font
+        if (font_exists(font))
+        {
+			if(font != global.defaultFont)
+			{
+				font_delete(font);
+			}
+        }
+		
+        // default font
+        font = global.defaultFont;
+    }	
+}
+
 function LoadLanguageFlag(_path)
 {
     var flag_path = _path + "flag.png";

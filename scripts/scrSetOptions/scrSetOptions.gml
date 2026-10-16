@@ -6,7 +6,8 @@ global.auto_save_items = false; //If the items should be saved when picked up
 
 global.title_room = rTitle; //The title screen
 
-global.default_music = bgmGuyRock; //The song that plays in options, title, and files
+/*Go to scrMusicManagement if you wish to change the loop start and end*/
+global.default_music = bgmTitle; //The song that plays in options, title, and files. 
 
 global.death_music = true; //Sets if the game over music should play
 global.time_when_dead = false; //Keeping track of the time even when player is dead

@@ -39,6 +39,8 @@ function get_music() {
 			case rFiles:
 			case rOptions:
 			    music = global.default_music;
+				loopStart = 7.677;
+				loopEnd = 105.681;
 				//Add additional stuff here
 			    break;
 		}
